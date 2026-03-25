@@ -878,13 +878,19 @@ body {
     #2a1f3d,
     #6b3fa0
   );
+
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  box-sizing: border-box;
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
 
   display: flex;
+  flex-wrap: wrap; /* 👈 importante pro Carrd */
   justify-content: space-between;
   gap: 40px;
 }
