@@ -19,5 +19,19 @@
   "service_label3": "PNGTuber/Live2D",
   "service_desc3": "Bring your character to life. I handle design, illustration, and full motion setup for your avatar.",
   "service_label4": "Emotes",
-  "service_desc4": "Enhance your stream with custom emotes tailored for every moment."
+  "service_desc4": "Enhance your stream with custom emotes tailored for every moment.",
+  "faq_title1": "What kind of art do you make?",
+  "faq_desc1": "SFW, NSFW (Mild), Gore (Mild), Weapons, Armor, Mecha, PNGTuber, Vtuber, and Complex Backgrounds. If you have a specific idea, explain it in your request and I will evaluate if it's within my scope.",
+  "faq_title2": "What don't you draw?",
+  "faq_desc2": "Some content is not part of my work: Extreme/explicit Gore, Extreme/explicit NSFW, and Furry. Requests involving these themes will be declined.",
+  "faq_title3": "Can I request something not listed?",
+  "faq_desc3": "Yes, you can! The list shows what I usually do, but it doesn't mean I'm limited to just that. If you're unsure, just ask before sending your request.",
+  "faq_title4": "Do you do original characters?",
+  "faq_desc4": "Yes. I can draw original characters (OCs), game characters, or adaptations based on references.",
+  "faq_title5": "Do you make art for VTubers or PNGTubers?",
+  "faq_desc5": "I do! I can create art for PNGTubers, VTuber models, expressions, or additional assets. Please explain what you need in your request.",
+  "faq_title6": "Can I request complex backgrounds?",
+  "faq_desc6": "Yes. Detailed backgrounds are part of my work, but the price may vary depending on complexity.",
+  "faq_title7": "How do I place an order?",
+  "faq_desc7": "Just get in touch by sending: Character references or ideas, the type of art desired, and important details. This way I can evaluate and confirm the quote."
 }
