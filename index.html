@@ -753,6 +753,13 @@ body {
   opacity: 1;
 }
 
+.arrow-side.disabled {
+  opacity: 0.25;
+  filter: grayscale(1);
+  cursor: default;
+  pointer-events: none;
+}
+
 .arrow-side.left {
   transform: rotate(90deg);
 }
@@ -1108,51 +1115,60 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      SERVICES CAROUSEL
   ========================= */
-
   function updateArrows() {
     if (!grid || !leftArrow || !rightArrow) return;
 
     const maxScroll = grid.scrollWidth - grid.clientWidth;
-    const current = grid.scrollLeft;
+    const current = Math.round(grid.scrollLeft);
 
     const isOverflowing = maxScroll > 5;
 
-    if (!isOverflowing) {
-      // 👉 centraliza quando não precisa scroll
-      grid.style.justifyContent = "center";
+    // 👉 centraliza ou alinha
+    grid.style.justifyContent = isOverflowing ? "flex-start" : "center";
 
-      leftArrow.style.display = "none";
-      rightArrow.style.display = "none";
-      return;
+    const TOLERANCE = 10;
+
+    // 👉 estado da seta esquerda
+    if (current <= TOLERANCE) {
+      leftArrow.classList.add("disabled");
+    } else {
+      leftArrow.classList.remove("disabled");
     }
 
-    // 👉 alinha à esquerda quando precisa scroll
-    grid.style.justifyContent = "flex-start";
-
-    const TOLERANCE = 8;
-
-    // seta esquerda
-    leftArrow.style.display = current > TOLERANCE ? "block" : "none";
-
-    // seta direita (corrigida 👇)
-    rightArrow.style.display =
-      current < maxScroll - TOLERANCE ? "block" : "none";
+    // 👉 estado da seta direita
+    if (current >= maxScroll - TOLERANCE) {
+      rightArrow.classList.add("disabled");
+    } else {
+      rightArrow.classList.remove("disabled");
+    }
   }
 
   if (grid && leftArrow && rightArrow) {
 
+    function scrollAndUpdate(offset) {
+      grid.scrollBy({ left: offset, behavior: "smooth" });
+
+      // 👇 garante atualização após animação
+      setTimeout(updateArrows, 350);
+    }
+
     leftArrow.onclick = () => {
-      grid.scrollBy({ left: -300, behavior: "smooth" });
+      if (leftArrow.classList.contains("disabled")) return;
+      scrollAndUpdate(-300);
     };
 
     rightArrow.onclick = () => {
-      grid.scrollBy({ left: 300, behavior: "smooth" });
+      if (rightArrow.classList.contains("disabled")) return;
+      scrollAndUpdate(300);
     };
 
-    grid.addEventListener("scroll", updateArrows);
+    grid.addEventListener("scroll", () => {
+      requestAnimationFrame(updateArrows);
+    });
+
     window.addEventListener("resize", updateArrows);
 
-    // 👇 garante cálculo correto após render
+    // 👇 estado inicial correto
     setTimeout(updateArrows, 50);
   }
 
