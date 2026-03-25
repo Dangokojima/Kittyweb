@@ -959,151 +959,200 @@ body {
 </div>
 
 <script>
+
 document.addEventListener("DOMContentLoaded", () => {
 
-const BASE = "https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main";
+  /* =========================
+     BASE
+  ========================= */
+  const BASE = "https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main";
 
-const themeIcon = document.getElementById("themeIcon");
-const langText = document.getElementById("langText");
-const langIcon = document.getElementById("langIcon");
-langIcon.src = `${BASE}/images/lang.svg`;
-const menuIcon = document.getElementById("menuIcon");
+  /* =========================
+     ELEMENTOS
+  ========================= */
 
-const menuBtn = document.getElementById("menuBtn");
-const sidePanel = document.getElementById("sidePanel");
-const overlay = document.getElementById("overlay");
+  // UI geral
+  const themeIcon = document.getElementById("themeIcon");
+  const langText = document.getElementById("langText");
+  const langIcon = document.getElementById("langIcon");
+  const menuIcon = document.getElementById("menuIcon");
 
-const openPopup = document.getElementById("openPopup");
-const mobilePopup = document.getElementById("mobilePopup");
-const popup = document.getElementById("popup");
-const popupText = document.getElementById("popupText");
-const closeIcon = document.getElementById("closeIcon");
-closeIcon.src = `${BASE}/images/close.svg`;
-menuIcon.src = `${BASE}/images/menu.svg`;
-document.getElementById("logoWhite").src = `${BASE}/images/Logowhite.png`;
-document.getElementById("closeBtn").onclick = closeMenu;
-const grid = document.querySelector(".services-grid");
-const leftArrow = document.querySelector(".arrow-side.left");
-const rightArrow = document.querySelector(".arrow-side.right");
+  const menuBtn = document.getElementById("menuBtn");
+  const sidePanel = document.getElementById("sidePanel");
+  const overlay = document.getElementById("overlay");
 
-leftArrow.onclick = () => {
-  grid.scrollBy({ left: -300, behavior: "smooth" });
-};
+  const openPopup = document.getElementById("openPopup");
+  const mobilePopup = document.getElementById("mobilePopup");
+  const popup = document.getElementById("popup");
+  const popupText = document.getElementById("popupText");
 
-rightArrow.onclick = () => {
-  grid.scrollBy({ left: 300, behavior: "smooth" });
-};
+  const closeIcon = document.getElementById("closeIcon");
 
+  // Services carousel
+  const grid = document.querySelector(".services-grid");
+  const leftArrow = document.querySelector(".arrow-side.left");
+  const rightArrow = document.querySelector(".arrow-side.right");
 
-/* SOCIAL ICONS */
-document.querySelectorAll("[data-social]").forEach(el=>{
-  el.src = `${BASE}/images/${el.dataset.social}.svg`;
-});
+  /* =========================
+     ASSETS
+  ========================= */
 
-/* LANG */
-let currentLang = localStorage.getItem("lang") || (navigator.language.includes("pt") ? "pt":"en");
+  langIcon.src = `${BASE}/images/lang.svg`;
+  menuIcon.src = `${BASE}/images/menu.svg`;
+  closeIcon.src = `${BASE}/images/close.svg`;
+  document.getElementById("logoWhite").src = `${BASE}/images/Logowhite.png`;
 
-let translations = {};
+  document.getElementById("closeBtn").onclick = closeMenu;
 
-function loadTranslations(lang){
-  fetch(`${BASE}/data/${lang}.json?v=${Date.now()}`)
-    .then(r=>r.json())
-    .then(data=>{
-      translations = data;
-      applyTranslations();
-    });
-}
-
-function applyTranslations(){
-  document.querySelectorAll("[data-i18n]").forEach(el=>{
-    const key = el.dataset.i18n;
-    const value = translations[key];
-
-    el.innerHTML = (value || el.textContent || "")
-      .replace(/\n/g, "<br>");
+  // Social icons
+  document.querySelectorAll("[data-social]").forEach(el=>{
+    el.src = `${BASE}/images/${el.dataset.social}.svg`;
   });
 
-  langText.textContent = currentLang==="pt"?"BR":"EN";
-}
+  /* =========================
+     LANG
+  ========================= */
 
-loadTranslations(currentLang);
+  let currentLang = localStorage.getItem("lang") || (navigator.language.includes("pt") ? "pt":"en");
+  let translations = {};
 
-document.getElementById("langToggle").onclick=()=>{
-  currentLang = currentLang==="pt"?"en":"pt";
-  localStorage.setItem("lang",currentLang);
-  loadTranslations(currentLang);
-};
-
-/* THEME */
-function updateTheme(){
-  const light = document.body.classList.contains("light");
-  themeIcon.src = light ? `${BASE}/images/light.svg` : `${BASE}/images/dark.svg`;
-}
-updateTheme();
-
-document.getElementById("themeToggle").onclick=()=>{
-  document.body.classList.toggle("light");
-  localStorage.setItem("theme", document.body.classList.contains("light")?"light":"dark");
-  updateTheme();
-};
-
-/* MENU */
-menuBtn.onclick=()=>{
-  sidePanel.classList.toggle("open");
-  overlay.classList.toggle("show");
-};
-
-overlay.onclick=()=>{
-  sidePanel.classList.remove("open");
-  overlay.classList.remove("show");
-};
-
-function closeMenu(){
-  sidePanel.classList.remove("open");
-  overlay.classList.remove("show");
-}
-
-/* POPUP */
-const links={
-  pt:"https://tally.so/r/gD0Qq1",
-  en:"https://tally.so/r/wb5pJ6"
-};
-
-
-function openForm(){
-  popup.classList.add("show");
-  popupText.textContent = translations.popup || "...";
-  setTimeout(()=>{
-    window.open(links[currentLang],"_blank");
-    popup.classList.remove("show");
-  },600);
-}
-
-openPopup.onclick=openForm;
-
-/* ===== CLOSE EM TUDO ===== */
-
-// links (Sobre, Trabalhos, etc)
-document.querySelectorAll(".side-menu a").forEach(el=>{
-  el.addEventListener("click", closeMenu);
-});
-
-// redes sociais
-document.querySelectorAll(".socials img").forEach(el=>{
-  el.addEventListener("click", closeMenu);
-});
-
-// botão comissão mobile (fecha antes de abrir)
-mobilePopup.onclick = () => {
-  closeMenu();
-  openForm();
-};
-
-sidePanel.addEventListener("click", (e) => {
-  if (e.target === sidePanel) {
-    closeMenu();
+  function loadTranslations(lang){
+    fetch(`${BASE}/data/${lang}.json?v=${Date.now()}`)
+      .then(r=>r.json())
+      .then(data=>{
+        translations = data;
+        applyTranslations();
+      });
   }
-});
+
+  function applyTranslations(){
+    document.querySelectorAll("[data-i18n]").forEach(el=>{
+      const key = el.dataset.i18n;
+      const value = translations[key];
+
+      el.innerHTML = (value || el.textContent || "")
+        .replace(/\n/g, "<br>");
+    });
+
+    langText.textContent = currentLang==="pt"?"BR":"EN";
+  }
+
+  loadTranslations(currentLang);
+
+  document.getElementById("langToggle").onclick=()=>{
+    currentLang = currentLang==="pt"?"en":"pt";
+    localStorage.setItem("lang",currentLang);
+    loadTranslations(currentLang);
+  };
+
+  /* =========================
+     THEME
+  ========================= */
+
+  function updateTheme(){
+    const light = document.body.classList.contains("light");
+    themeIcon.src = light ? `${BASE}/images/light.svg` : `${BASE}/images/dark.svg`;
+  }
+
+  updateTheme();
+
+  document.getElementById("themeToggle").onclick=()=>{
+    document.body.classList.toggle("light");
+    localStorage.setItem("theme", document.body.classList.contains("light")?"light":"dark");
+    updateTheme();
+  };
+
+  /* =========================
+     MENU
+  ========================= */
+
+  menuBtn.onclick=()=>{
+    sidePanel.classList.toggle("open");
+    overlay.classList.toggle("show");
+  };
+
+  overlay.onclick=closeMenu;
+
+  function closeMenu(){
+    sidePanel.classList.remove("open");
+    overlay.classList.remove("show");
+  }
+
+  /* =========================
+     POPUP
+  ========================= */
+
+  const links={
+    pt:"https://tally.so/r/gD0Qq1",
+    en:"https://tally.so/r/wb5pJ6"
+  };
+
+  function openForm(){
+    popup.classList.add("show");
+    popupText.textContent = translations.popup || "...";
+
+    setTimeout(()=>{
+      window.open(links[currentLang],"_blank");
+      popup.classList.remove("show");
+    },600);
+  }
+
+  openPopup.onclick = openForm;
+
+  mobilePopup.onclick = () => {
+    closeMenu();
+    openForm();
+  };
+
+  /* =========================
+     SERVICES CAROUSEL
+  ========================= */
+
+  function updateArrows() {
+    if (!grid || !leftArrow || !rightArrow) return;
+
+    const isOverflowing = grid.scrollWidth > grid.clientWidth + 5;
+
+    // sem overflow → esconde tudo
+    if (!isOverflowing) {
+      leftArrow.style.display = "none";
+      rightArrow.style.display = "none";
+      return;
+    }
+
+    // controle por posição
+    leftArrow.style.display = grid.scrollLeft > 0 ? "block" : "none";
+    rightArrow.style.display =
+      grid.scrollLeft + grid.clientWidth < grid.scrollWidth ? "block" : "none";
+  }
+
+  if (grid && leftArrow && rightArrow) {
+
+    leftArrow.onclick = () => {
+      grid.scrollBy({ left: -300, behavior: "smooth" });
+    };
+
+    rightArrow.onclick = () => {
+      grid.scrollBy({ left: 300, behavior: "smooth" });
+    };
+
+    grid.addEventListener("scroll", updateArrows);
+    window.addEventListener("resize", updateArrows);
+
+    updateArrows();
+  }
+
+  /* =========================
+     CLOSE HELPERS
+  ========================= */
+
+  document.querySelectorAll(".side-menu a").forEach(el=>{
+    el.addEventListener("click", closeMenu);
+  });
+
+  document.querySelectorAll(".socials img").forEach(el=>{
+    el.addEventListener("click", closeMenu);
+  });
 
 });
 </script>
