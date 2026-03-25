@@ -1,369 +1,286 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kitty</title>
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Dangokojima/Kittysiteimages@main/data/homestyle.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Dangokojima/Kittysiteimages@main/data/termstyle.css">
 <script defer src="https://cdn.jsdelivr.net/gh/Dangokojima/Kittysiteimages@main/data/script.js"></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=UnifrakturCook:wght@700&family=Inika:wght@400;700&display=swap" rel="stylesheet">
-<title>Kitty</title>
+
+<style>
+  /* Força o container do Carrd a aceitar a altura total do HTML customizado */
+  #wrapper > .inner {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    display: block !important;
+    height: auto !important;
+    min-height: 100vh !important;
+  }
+
+  /* Garante que o root ocupe o espaço e alinhe o footer */
+  #kitty-root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+  }
+
+  /* Faz o footer ficar no final da página se houver pouco conteúdo */
+  .kitty-footer {
+    margin-top: auto;
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    clear: both !important;
+    z-index: 10;
+  }
+</style>
 
 </head>
 
 <body>
-<!-- HERO -->
-<div class="hero">
 
-  <section class="hero-content">
-    <h1 class="font-title" data-i18n="hero_title"></h1>
+<div id="kitty-root">
 
-    <p class="font-serif" data-i18n="hero_desc"></p>
+  <header class="kitty-header">
+    <div class="header-left">
+      <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/Logo.png" class="logo-img">
+    </div>
 
-    <button class="cta font-serif" data-i18n="hero_cta"></button>
+    <nav class="header-center">
+      <a href="#about">
+        <span class="font-buttons" data-i18n="about">Sobre</span>
+      </a>
+      <a href="#portfolio">
+        <span class="font-buttons" data-i18n="portfolio">Trabalhos</span>
+      </a>
+      <a href="#contact">
+        <span class="font-buttons" data-i18n="contact">Contato</span>
+      </a>
+      <a href="#faq">
+        <span class="font-buttons" data-i18n="faq">FAQ</span>
+      </a>
+      <a href="https://vgen.co/Kittyhikari" target="_blank">
+        <span>
+          <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/Vgenfulllogo.svg" style="height:15px;">
+        </span>
+      </a>
+    </nav>
 
-    <div class="scroll-indicator">
-      <span class="arrow"></span>
+    <div class="header-right">
+      <button id="openPopup" class="cta font-serif" data-i18n="cta"></button>
+      <button id="themeToggle" class="icon-btn">
+        <img id="themeIcon">
+      </button>
+      <button id="langToggle" class="icon-btn lang-btn font-buttons">
+        <img id="langIcon">
+        <span id="langText">BR</span>
+      </button>
+      <button id="menuBtn" class="menu-btn icon-btn">
+        <img id="menuIcon">
+      </button>
+    </div>
+  </header>
+
+  <div class="hero">
+    <section class="hero-content">
+      <h1 class="font-title" data-i18n="hero_title"></h1>
+      <p class="font-serif" data-i18n="hero_desc"></p>
+      <button class="cta font-serif" data-i18n="hero_cta"></button>
+      <div class="scroll-indicator">
+        <span class="arrow"></span>
+      </div>
+    </section>
+  </div>
+
+  <section class="portfolio-section" id="portfolio">
+    <div class="portfolio-header">
+      <h2 class="font-serif" data-i18n="portfolio_label"></h2>
+      <h3 class="font-title" data-i18n="portfolio_title"></h3>
+    </div>
+    <div class="portfolio-grid">
+      <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/1.png" class="pos-center"></div>
+      <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/2.png" class="pos-left"></div>
+      <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/3.png" class="pos-right"></div>
+      <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/4.png" class="pos-center"></div>
+      <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/5.png" class="pos-left"></div>
+      <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/6.png" class="pos-right"></div>
     </div>
   </section>
 
-</div>
-
-<section class="portfolio-section">
-
-  <div class="portfolio-header">
-    <h2 class="font-serif" data-i18n="portfolio_label"></h2>
-    <h3 class="font-title" data-i18n="portfolio_title"></h3>
-  </div>
-
-  <div class="portfolio-grid">
-
-    <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/1.png" class="pos-center"></div>
-    <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/2.png" class="pos-left"></div>
-    <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/3.png" class="pos-right"></div>
-
-    <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/4.png" class="pos-center"></div>
-    <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/5.png" class="pos-left"></div>
-    <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/6.png" class="pos-right"></div>
-
-  </div>
-
-</section>
-
-<section class="services-section">
-
-  <div class="services-header">
-    <h2 class="font-serif" data-i18n="services_label"></h2>
-    <h3 class="font-title" data-i18n="services_title"></h3>
-  </div>
-
-  <div class="services-wrapper">
-
-    <!-- seta esquerda -->
-    <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/arrow.svg" class="arrow-side left">
-
-    <div class="services-grid">
-
-      <div class="service-card">
-        <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/service_1.svg" class="service-icon">
-        <h4 data-i18n="service_label1"></h4>
-        <p data-i18n="service_desc1"></p>
-      </div>
-
-      <div class="service-card">
-        <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/service_2.svg" class="service-icon">
-        <h4 data-i18n="service_label2"></h4>
-        <p data-i18n="service_desc2"></p>
-      </div>
-
-      <div class="service-card">
-        <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/service_3.svg" class="service-icon">
-        <h4 data-i18n="service_label3"></h4>
-        <p data-i18n="service_desc3"></p>
-      </div>
-
-      <div class="service-card">
-        <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/service_4.svg" class="service-icon">
-        <h4 data-i18n="service_label4"></h4>
-        <p data-i18n="service_desc4"></p>
-      </div>
-
+  <section class="services-section">
+    <div class="services-header">
+      <h2 class="font-serif" data-i18n="services_label"></h2>
+      <h3 class="font-title" data-i18n="services_title"></h3>
     </div>
-
-    <!-- seta direita -->
-    <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/arrow.svg" class="arrow-side right">
-
-  </div>
-
-</section>
-
-<section class="faq-section">
-
-  <div class="faq-container">
-
-    <!-- IMAGEM -->
-    <div class="faq-image">
-      <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/faq.png">
-    </div>
-
-    <!-- CONTEÚDO -->
-    <div class="faq-content">
-
-      <h2 class="font-serif" data-i18n="faq_header"></h2>
-
-      <div class="faq-list">
-
-        <!-- ITEM 1 -->
-        <div class="faq-item active">
-          <div class="faq-question" data-index="1">
-            <span data-i18n="faq_title1"></span>
-            <span class="faq-icon">×</span>
-          </div>
-          <div class="faq-answer" data-i18n="faq_desc1"></div>
+    <div class="services-wrapper">
+      <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/arrow.svg" class="arrow-side left">
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/service_1.svg" class="service-icon">
+          <h4 data-i18n="service_label1"></h4>
+          <p data-i18n="service_desc1"></p>
         </div>
-
-        <!-- ITEM 2 -->
-        <div class="faq-item">
-          <div class="faq-question" data-index="2">
-            <span data-i18n="faq_title2"></span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer" data-i18n="faq_desc2"></div>
+        <div class="service-card">
+          <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/service_2.svg" class="service-icon">
+          <h4 data-i18n="service_label2"></h4>
+          <p data-i18n="service_desc2"></p>
         </div>
-
-        <!-- ITEM 3 -->
-        <div class="faq-item">
-          <div class="faq-question" data-index="3">
-            <span data-i18n="faq_title3"></span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer" data-i18n="faq_desc3"></div>
+        <div class="service-card">
+          <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/service_3.svg" class="service-icon">
+          <h4 data-i18n="service_label3"></h4>
+          <p data-i18n="service_desc3"></p>
         </div>
-
-        <!-- ITEM 4 -->
-        <div class="faq-item">
-          <div class="faq-question">
-            <span data-i18n="faq_title4"></span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer" data-i18n="faq_desc4"></div>
+        <div class="service-card">
+          <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/service_4.svg" class="service-icon">
+          <h4 data-i18n="service_label4"></h4>
+          <p data-i18n="service_desc4"></p>
         </div>
-
-        <!-- ITEM 5 -->
-        <div class="faq-item">
-          <div class="faq-question">
-            <span data-i18n="faq_title5"></span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer" data-i18n="faq_desc5"></div>
-        </div>
-
-        <!-- ITEM 6 -->
-        <div class="faq-item">
-          <div class="faq-question">
-            <span data-i18n="faq_title6"></span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer" data-i18n="faq_desc6"></div>
-        </div>
-
-        <!-- ITEM 7 -->
-        <div class="faq-item">
-          <div class="faq-question">
-            <span data-i18n="faq_title7"></span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer" data-i18n="faq_desc7"></div>
-        </div>
-
       </div>
-
+      <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/arrow.svg" class="arrow-side right">
     </div>
+  </section>
 
-  </div>
+  <section class="faq-section" id="faq">
+    <div class="faq-container">
+      <div class="faq-image">
+        <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/faq.png">
+      </div>
+      <div class="faq-content">
+        <h2 class="font-serif" data-i18n="faq_header"></h2>
+        <div class="faq-list">
+          <div class="faq-item active">
+            <div class="faq-question" data-index="1">
+              <span data-i18n="faq_title1"></span>
+              <span class="faq-icon">×</span>
+            </div>
+            <div class="faq-answer" data-i18n="faq_desc1"></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" data-index="2">
+              <span data-i18n="faq_title2"></span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer" data-i18n="faq_desc2"></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" data-index="3">
+              <span data-i18n="faq_title3"></span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer" data-i18n="faq_desc3"></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq_title4"></span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer" data-i18n="faq_desc4"></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq_title5"></span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer" data-i18n="faq_desc5"></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq_title6"></span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer" data-i18n="faq_desc6"></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq_title7"></span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer" data-i18n="faq_desc7"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</section>
+  <div id="overlay" class="overlay"></div>
 
-<header class="kitty-header">
-  <div class="header-left">
-    <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/Logo.png" class="logo-img">
-  </div>
-
-  <nav class="header-center">
-    <a href="#about">
-      <span class="font-buttons" data-i18n="about">Sobre</span>
-    </a>
-
-    <a href="#portfolio">
-      <span class="font-buttons" data-i18n="portfolio">Trabalhos</span>
-    </a>
-
-    <a href="#contact">
-      <span class="font-buttons" data-i18n="contact">Contato</span>
-    </a>
-
-    <a href="#faq">
-      <span class="font-buttons" data-i18n="faq">FAQ</span>
-    </a>
-
-    <!-- VGEN -->
-    <a href="https://vgen.co/Kittyhikari" target="_blank">
-      <span>
-        <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/Vgenfulllogo.svg" style="height:15px;">
-      </span>
-    </a>
-  </nav>
-
-  <div class="header-right">
-    <button id="openPopup" class="cta font-serif" data-i18n="cta"></button>
-
-    <button id="themeToggle" class="icon-btn">
-      <img id="themeIcon">
+  <div id="sidePanel" class="side-panel">
+    <button id="closeBtn" class="close-btn icon-btn">
+      <img id="closeIcon">
     </button>
-
-    <button id="langToggle" class="icon-btn lang-btn font-buttons">
-      <img id="langIcon">
-      <span id="langText">BR</span>
-    </button>
-
-    <button id="menuBtn" class="menu-btn icon-btn">
-      <img id="menuIcon">
-    </button>
-  </div>
-</header>
-
-<div id="overlay" class="overlay"></div>
-
-<div id="sidePanel" class="side-panel">
-
-  <button id="closeBtn" class="close-btn icon-btn">
-    <img id="closeIcon">
-  </button>
-
-  <img id="logoWhite" class="side-logo">
-
-  <div class="side-menu">
-    <a href="#about" class="font-buttons" data-i18n="about">Sobre</a>
-    <a href="#portfolio" class="font-buttons" data-i18n="portfolio">Trabalhos</a>
-    <a href="#contact" class="font-buttons" data-i18n="contact">Contato</a>
-    <a href="#faq" class="font-buttons" data-i18n="faq">FAQ</a>
-
-    <button id="mobilePopup" class="mobile-cta font-serif" data-i18n="cta"></button>
-
-    <div class="socials">
-      <a href="https://bsky.app/profile/kittyhikari.bsky.social" target="_blank">
-        <img data-social="Blue">
-      </a>
-
-      <a href="https://www.instagram.com/kitty_hikari/" target="_blank">
-        <img data-social="Insta">
-      </a>
-
-      <a href="https://www.tiktok.com/@kittyhikari_art" target="_blank">
-        <img data-social="Tiktok">
-      </a>
-
-      <a href="https://vgen.co/Kittyhikari" target="_blank">
-        <img data-social="Vgen">
-      </a>
-
-      <a href="https://x.com/KittyHikari_art?t=WbxfJxjSQgHHvNHExcrHlw&s=09" target="_blank">
-        <img data-social="X">
-      </a>
-    </div>
-  </div>
-
-</div>
-
-<div id="popup" class="popup">
-  <div class="popup-content">
-    <p id="popupText">...</p>
-  </div>
-</div>
-
-<div id="termsPage" class="terms-page">
-
-  <div class="terms-container">
-
-    <h1>Termos de Serviço</h1>
-    <p class="terms-sub">
-      Ao solicitar uma comissão, você declara que leu e concorda com todos os termos abaixo.
-    </p>
-
-    <div class="terms-box">
-      <!-- SEUS TERMOS AQUI -->
-    </div>
-
-    <button id="closeTerms" class="cta">Voltar</button>
-
-  </div>
-
-</div>
-
-<div class="kitty-footer">
-
-  <div class="footer-container">
-
-    <!-- LEFT -->
-    <div class="footer-left">
-      <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/Logowhite.png" class="footer-logo">
-
-      <p class="font-serif" data-i18n="footer_tagline">
-        Germinando novas espécies...
-      </p>
-    </div>
-
-    <!-- CENTER -->
-    <div class="footer-links">
-
-      <div class="footer-col">
-        <a href="#about" data-i18n="about"></a>
-        <a href="#commissions" data-i18n="ctafotter"></a>
-        <a href="#portfolio" data-i18n="portfolio"></a>
+    <img id="logoWhite" class="side-logo">
+    <div class="side-menu">
+      <a href="#about" class="font-buttons" data-i18n="about">Sobre</a>
+      <a href="#portfolio" class="font-buttons" data-i18n="portfolio">Trabalhos</a>
+      <a href="#contact" class="font-buttons" data-i18n="contact">Contato</a>
+      <a href="#faq" class="font-buttons" data-i18n="faq">FAQ</a>
+      <button id="mobilePopup" class="mobile-cta font-serif" data-i18n="cta"></button>
+      <div class="socials">
+        <a href="https://bsky.app/profile/kittyhikari.bsky.social" target="_blank"><img data-social="Blue"></a>
+        <a href="https://www.instagram.com/kitty_hikari/" target="_blank"><img data-social="Insta"></a>
+        <a href="https://www.tiktok.com/@kittyhikari_art" target="_blank"><img data-social="Tiktok"></a>
+        <a href="https://vgen.co/Kittyhikari" target="_blank"><img data-social="Vgen"></a>
+        <a href="https://x.com/KittyHikari_art" target="_blank"><img data-social="X"></a>
       </div>
-
-      <div class="footer-col">
-        <a href="#" id="openTerms" data-i18n="terms"></a>
-        <a href="#faq" data-i18n="faq"></a>
-        <a href="#privacy" data-i18n="privacy"></a>
-      </div>
-
     </div>
-
-    <!-- RIGHT -->
-    <div class="footer-right">
-
-      <p class="footer-contact font-buttons" data-i18n="footer_contact"></p>
-      <p class="footer-email">kittyhikari@gmail.com</p>
-
-      <div class="footer-socials">
-        <a href="https://vgen.co/Kittyhikari" target="_blank">
-          <img data-social="Vgen">
-        </a>
-
-        <a href="https://www.instagram.com/kitty_hikari/" target="_blank">
-          <img data-social="Insta">
-        </a>
-
-        <a href="https://x.com/KittyHikari_art" target="_blank">
-          <img data-social="X">
-        </a>
-
-        <a href="https://www.tiktok.com/@kittyhikari_art" target="_blank">
-          <img data-social="Tiktok">
-        </a>
-
-        <a href="#" target="_blank">
-          <img data-social="Blue">
-        </a>
-      </div>
-
-    </div>
-
   </div>
 
-</div>
-</body>
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <p id="popupText">...</p>
+    </div>
+  </div>
+
+  <div id="termsPage" class="terms-page">
+    <div class="terms-container">
+      <h1>Termos de Serviço</h1>
+      <p class="terms-sub">Ao solicitar uma comissão, você declara que leu e concorda com todos os termos abaixo.</p>
+      <div class="terms-box">
+        </div>
+      <button id="closeTerms" class="cta">Voltar</button>
+    </div>
+  </div>
+
+  <footer class="kitty-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/Logowhite.png" class="footer-logo">
+        <p class="font-serif" data-i18n="footer_tagline">Germinando novas espécies...</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <a href="#about" data-i18n="about"></a>
+          <a href="#commissions" data-i18n="ctafotter"></a>
+          <a href="#portfolio" data-i18n="portfolio"></a>
+        </div>
+        <div class="footer-col">
+          <a href="#" id="openTerms" data-i18n="terms"></a>
+          <a href="#faq" data-i18n="faq"></a>
+          <a href="#privacy" data-i18n="privacy"></a>
+        </div>
+      </div>
+      <div class="footer-right">
+        <p class="footer-contact font-buttons" data-i18n="footer_contact"></p>
+        <p class="footer-email">kittyhikari@gmail.com</p>
+        <div class="footer-socials">
+          <a href="https://vgen.co/Kittyhikari" target="_blank"><img data-social="Vgen"></a>
+          <a href="https://www.instagram.com/kitty_hikari/" target="_blank"><img data-social="Insta"></a>
+          <a href="https://x.com/KittyHikari_art" target="_blank"><img data-social="X"></a>
+          <a href="https://www.tiktok.com/@kittyhikari_art" target="_blank"><img data-social="Tiktok"></a>
+          <a href="#" target="_blank"><img data-social="Blue"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div> </body>
 </html>
