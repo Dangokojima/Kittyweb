@@ -779,6 +779,101 @@ body {
   }
 }
 
+/* =========================
+   FAQ
+========================= */
+
+.faq-section {
+  padding: 80px 20px;
+}
+
+.faq-container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  gap: 40px;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    rgba(168,85,247,0.6),
+    rgba(168,85,247,0.2)
+  );
+
+  border-radius: 16px;
+  padding: 40px;
+}
+
+/* IMAGEM */
+.faq-image img {
+  width: 380px;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* CONTENT */
+.faq-content {
+  flex: 1;
+}
+
+/* TITULO */
+.faq-content h2 {
+  margin-bottom: 20px;
+}
+
+/* ITEM */
+.faq-item {
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding: 14px 0;
+}
+
+/* QUESTION */
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+/* ICON */
+.faq-icon {
+  opacity: 0.7;
+}
+
+/* ANSWER */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+
+  transition: 0.3s ease;
+}
+
+/* ACTIVE */
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  opacity: 1;
+  margin-top: 10px;
+}
+
+.faq-item.active .faq-icon {
+  content: "×";
+}
+
+/* MOBILE */
+@media (max-width:768px) {
+  .faq-container {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .faq-image img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 </style>
 </head>
 
@@ -864,6 +959,58 @@ body {
 
     <!-- seta direita -->
     <img src="images/arrow.svg" class="arrow-side right">
+
+  </div>
+
+</section>
+
+<section class="faq-section">
+
+  <div class="faq-container">
+
+    <!-- IMAGEM -->
+    <div class="faq-image">
+      <img src="images/faq.png">
+    </div>
+
+    <!-- CONTEÚDO -->
+    <div class="faq-content">
+
+      <h2 class="font-title" data-i18n="faq_title"></h2>
+
+      <div class="faq-list">
+
+        <!-- ITEM -->
+        <div class="faq-item active">
+          <div class="faq-question" data-index="1">
+            <span data-i18n="faq_title1"></span>
+            <span class="faq-icon">×</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq_desc1"></div>
+        </div>
+
+        <!-- REPLICA ATÉ 7 -->
+        <!-- só muda o número -->
+
+        <div class="faq-item">
+          <div class="faq-question" data-index="2">
+            <span data-i18n="faq_title2"></span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq_desc2"></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" data-index="3">
+            <span data-i18n="faq_title3"></span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq_desc3"></div>
+        </div>
+
+      </div>
+
+    </div>
 
   </div>
 
@@ -1016,6 +1163,27 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-social]").forEach(el=>{
     el.src = `${BASE}/images/${el.dataset.social}.svg`;
   });
+
+/* =========================
+   FAQ ACCORDION
+========================= */
+
+document.querySelectorAll(".faq-question").forEach(q => {
+  q.addEventListener("click", () => {
+
+    const item = q.parentElement;
+
+    // fecha todos
+    document.querySelectorAll(".faq-item").forEach(i => {
+      i.classList.remove("active");
+      i.querySelector(".faq-icon").textContent = "+";
+    });
+
+    // abre o clicado
+    item.classList.add("active");
+    item.querySelector(".faq-icon").textContent = "×";
+  });
+});
 
   /* =========================
      LANG
