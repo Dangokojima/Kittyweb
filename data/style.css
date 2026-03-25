@@ -486,7 +486,7 @@ p, span, a, button {
 
 .portfolio-header {
   text-align: center;
-  margin-bottom: -0px;
+  margin-bottom: 40px;
 }
 
 .portfolio-header h2 {
@@ -832,6 +832,7 @@ p, span, a, button {
 
 /* CONTENT */
 .faq-content {
+  text-align: left;
   flex: 1;
 }
 
