@@ -457,6 +457,81 @@ body {
     brightness(1.2);
 }
 
+/* =========================
+   PORTFOLIO
+========================= */
+
+.portfolio-section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.portfolio-header h2 {
+  font-size: 14px;
+  opacity: 0.7;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.portfolio-header h3 {
+  font-size: clamp(28px, 4vw, 40px);
+}
+
+/* GRID */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* CARD */
+.card {
+  width: 100%;
+  aspect-ratio: 340 / 520;
+  overflow: hidden;
+  border-radius: 12px;
+
+  border: 1px solid rgba(168,85,247,0.4);
+
+  position: relative;
+}
+
+/* IMAGEM */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(168,85,247,0.4);
+  transition: 0.3s;
+}
+
+/* CONTROLE DE POSIÇÃO */
+.pos-center { object-position: center; }
+.pos-left   { object-position: left; }
+.pos-right  { object-position: right; }
+
+/* MOBILE */
+@media (max-width:768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* esconde as duas últimas */
+  .portfolio-grid .card:nth-child(n+5) {
+    display: none;
+  }
+}
+
 /* MOBILE */
 @media (max-width:768px) {
   .header-center { display:none; }
@@ -530,6 +605,27 @@ body {
   <div class="scroll-indicator">
     <span class="arrow"></span>
   </div>
+</section>
+
+<section class="portfolio-section">
+
+  <div class="portfolio-header">
+    <h2 class="font-serif" data-i18n="portfolio_label"></h2>
+    <h3 class="font-title" data-i18n="portfolio_title"></h3>
+  </div>
+
+  <div class="portfolio-grid">
+
+    <div class="card"><img src="gallery/1.png" class="pos-center"></div>
+    <div class="card"><img src="gallery/2.png" class="pos-left"></div>
+    <div class="card"><img src="gallery/3.png" class="pos-right"></div>
+
+    <div class="card"><img src="gallery/4.png" class="pos-center"></div>
+    <div class="card"><img src="gallery/5.png" class="pos-left"></div>
+    <div class="card"><img src="gallery/6.png" class="pos-right"></div>
+
+  </div>
+
 </section>
 
 <header class="kitty-header">
