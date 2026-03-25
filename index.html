@@ -880,6 +880,117 @@ body {
   }
 }
 
+/* =========================
+   FOOTER
+========================= */
+
+.kitty-footer {
+  margin-top: 80px;
+  padding: 60px 20px;
+
+  background: linear-gradient(
+    135deg,
+    #2a1f3d,
+    #6b3fa0
+  );
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* LEFT */
+.footer-logo {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.footer-left p {
+  opacity: 0.8;
+}
+
+/* LINKS */
+.footer-links {
+  display: flex;
+  gap: 60px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-col a {
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+.footer-col a:hover {
+  opacity: 1;
+}
+
+/* RIGHT */
+.footer-contact {
+  font-weight: 600;
+}
+
+.footer-email {
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+/* SOCIAL */
+.footer-socials {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-socials img {
+  height: 20px;
+
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+.footer-socials a:hover img {
+  transform: scale(1.15);
+
+  filter:
+    drop-shadow(0 0 6px rgba(255, 186, 75, 0.7))
+    drop-shadow(0 0 12px rgba(255, 186, 75, 0.4))
+    brightness(1.2);
+}
+
+/* MOBILE */
+@media (max-width:768px) {
+
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+
+  .footer-right {
+    align-items: center;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+}
 </style>
 </head>
 
@@ -1395,6 +1506,68 @@ document.querySelectorAll(".faq-question").forEach(q => {
 
 });
 </script>
+<footer class="kitty-footer">
 
+  <div class="footer-container">
+
+    <!-- LEFT -->
+    <div class="footer-left">
+      <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/Logowhite.png" class="footer-logo">
+
+      <p class="font-serif" data-i18n="footer_tagline">
+        Germinando novas espécies...
+      </p>
+    </div>
+
+    <!-- CENTER -->
+    <div class="footer-links">
+
+      <div class="footer-col">
+        <a href="#about" data-i18n="about"></a>
+        <a href="#commissions" data-i18n="cta"></a>
+        <a href="#portfolio" data-i18n="portfolio"></a>
+      </div>
+
+      <div class="footer-col">
+        <a href="#terms" data-i18n="terms"></a>
+        <a href="#faq" data-i18n="faq"></a>
+        <a href="#privacy" data-i18n="privacy"></a>
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="footer-right">
+
+      <p class="footer-contact font-buttons" data-i18n="footer_contact"></p>
+      <p class="footer-email">kittyhikari@gmail.com</p>
+
+      <div class="footer-socials">
+        <a href="https://vgen.co/Kittyhikari" target="_blank">
+          <img data-social="Vgen">
+        </a>
+
+        <a href="https://www.instagram.com/kitty_hikari/" target="_blank">
+          <img data-social="Insta">
+        </a>
+
+        <a href="https://x.com/KittyHikari_art" target="_blank">
+          <img data-social="X">
+        </a>
+
+        <a href="https://www.tiktok.com/@kittyhikari_art" target="_blank">
+          <img data-social="Tiktok">
+        </a>
+
+        <a href="#" target="_blank">
+          <img data-social="Facebook">
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
 </body>
 </html>
