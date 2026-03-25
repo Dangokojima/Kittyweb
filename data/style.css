@@ -1047,6 +1047,9 @@ p, span, a, button {
 
 }
 
-.site-wrapper {
+.site-wrapper,
+.site-main,
+.inner {
   min-height: auto !important;
+  height: auto !important;
 }
