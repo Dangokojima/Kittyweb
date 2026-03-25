@@ -1,7 +1,55 @@
 /* =========================
-   FIX GLOBAL CARRD SCALE
+   LOADER
 ========================= */
 
+#loader {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999999;
+
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#loader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* LOGO */
+.loader-logo {
+  width: 120px;
+
+  animation: bounce 1.2s ease-in-out infinite;
+}
+
+/* BOUNCE */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* =========================
+   FADE DO SITE
+========================= */
+
+#kitty-root {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+#kitty-root.show {
+  opacity: 1;
+}
 /* trava o scaling do carrd */
 html {
   font-size: 16px !important;

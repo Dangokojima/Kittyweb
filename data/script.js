@@ -250,4 +250,18 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".site-wrapper")?.remove();
   }
 
+  const loader = document.getElementById("loader");
+  const root = document.getElementById("kitty-root");
+
+  // espera tudo carregar (imagens também)
+  window.addEventListener("load", () => {
+
+    // pequeno delay pra ficar bonito
+    setTimeout(() => {
+      loader.classList.add("hide");
+      root.classList.add("show");
+    }, 500);
+
+  });
+
 });
