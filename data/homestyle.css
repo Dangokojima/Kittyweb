@@ -212,6 +212,9 @@ h3 { font-size: clamp(18px, 1.2vw + 12px, 26px); }
   max-width: clamp(600px, 80vw, 1100px);
   margin: 0 auto;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 /* Grid que scrolla */

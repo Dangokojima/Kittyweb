@@ -1,11 +1,13 @@
+const BASE = "https://cdn.jsdelivr.net/gh/Dangokojima/Kittysiteimages@main";
+
 document.addEventListener("DOMContentLoaded", () => {
-  removeCarrdWrapper();
+  document.querySelectorAll("[data-src]").forEach(el => {
+    el.src = BASE + el.dataset.src;
+  });
 
   /* =========================
      BASE & ELEMENTOS GLOBAIS
   ========================= */
-  const BASE = "https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main";
-
   const themeIcon = document.getElementById("themeIcon");
   const langText = document.getElementById("langText");
   const langIcon = document.getElementById("langIcon");
@@ -240,10 +242,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".side-menu a, .socials img").forEach(el => {
     el.addEventListener("click", closeMenu);
   });
-
-  function removeCarrdWrapper() {
-    document.querySelector(".site-wrapper")?.remove();
-  }
 
   const loader = document.getElementById("loader");
   function hideLoader() {
