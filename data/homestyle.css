@@ -23,8 +23,14 @@
 
 /* LOGO */
 .loader-logo {
-  width: clamp(60px, 10vw, 100px);
-  animation: bounce 1.2s ease-in-out infinite;
+  width: 80px !important;
+  max-width: 80px !important;
+  height: auto !important;
+
+  display: block;
+  object-fit: contain;
+
+  transform: none !important; /* 👈 evita zoom maluco */
 }
 
 /* BOUNCE */
