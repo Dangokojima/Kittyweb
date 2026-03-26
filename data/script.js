@@ -32,38 +32,65 @@ document.addEventListener("DOMContentLoaded", () => {
   const rightArrow = document.querySelector(".arrow-side.right");
 
   /* =========================
+     SISTEMA DE DEBUG
+  ========================= */
+  function debugLog(msg, obj = "") {
+    console.log(`[KittyDebug] ${msg}`, obj);
+  }
+
+/* =========================
      CONTROLE DE VISÃO (SPA)
   ========================= */
   function updateView(showTerms = false) {
+    debugLog("Trocando visão. Mostrar termos?", showTerms);
+
+    if (!kittyRoot || !termsPage) {
+      debugLog("ERRO: kittyRoot ou termsPage não encontrados no DOM!");
+      return;
+    }
+
     if (showTerms) {
       kittyRoot.style.display = "none";
-      kittyRoot.classList.remove("show");
+      termsPage.style.display = "block"; // Mudamos para block para garantir visibilidade
       termsPage.classList.add("show");
-      document.body.classList.add("terms-open");
+      debugLog("Home escondida, Termos exibidos.");
     } else {
+      termsPage.style.display = "none";
       termsPage.classList.remove("show");
       kittyRoot.style.display = "flex";
-      setTimeout(() => {
-        kittyRoot.classList.add("show");
-      }, 10);
-      document.body.classList.remove("terms-open");
+      debugLog("Termos escondidos, Home exibida.");
     }
 
     window.scrollTo(0, 0);
     window.dispatchEvent(new Event('resize'));
-    setTimeout(updateArrows, 100); 
+    setTimeout(updateArrows, 100);
   }
 
-  // Eventos de troca de página
-  openTerms?.addEventListener("click", (e) => {
-    e.preventDefault();
-    updateView(true);
-  });
+  /* =========================
+     TERMS (Eventos com Verificação)
+  ========================= */
+  debugLog("Verificando botões de termos...");
+  debugLog("Botão Open:", openTerms);
+  debugLog("Botão Close:", closeTerms);
 
-  closeTerms?.addEventListener("click", (e) => {
-    e.preventDefault();
-    updateView(false);
-  });
+  if (openTerms) {
+    openTerms.addEventListener("click", (e) => {
+      debugLog("Clique detectado no botão de abrir termos!");
+      e.preventDefault();
+      e.stopPropagation(); // Impede o Carrd de resetar a página
+      updateView(true);
+    });
+  } else {
+    debugLog("AVISO: Elemento #openTerms não foi encontrado!");
+  }
+
+  if (closeTerms) {
+    closeTerms.addEventListener("click", (e) => {
+      debugLog("Clique detectado no botão de fechar termos!");
+      e.preventDefault();
+      updateView(false);
+    });
+  }
 
   /* =========================
      ASSETS & SOCIALS
