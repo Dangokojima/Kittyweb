@@ -38,39 +38,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const openTerms = document.getElementById("openTerms");
   const closeTerms = document.getElementById("closeTerms");
 
-  // ABRIR TERMOS
+// ABRIR TERMOS
   openTerms?.addEventListener("click", (e) => {
     e.preventDefault();
-    
-    // 1. Esconde a Home
-    kittyRoot.style.display = "none"; 
-    kittyRoot.classList.remove("show");
-
-    // 2. Mostra os termos
-    termsPage.classList.add("show"); 
-    
-    // 3. Reseta o scroll e avisa o Carrd que o tamanho mudou
-    window.scrollTo(0, 0);           
-    window.dispatchEvent(new Event('resize')); 
+    updateView(true);
   });
 
   // FECHAR TERMOS
   closeTerms?.addEventListener("click", (e) => {
     e.preventDefault();
-
-    // 1. Esconde os termos
-    termsPage.classList.remove("show");
-
-    // 2. Volta a Home (usamos flex para manter seu layout original)
-    kittyRoot.style.display = "flex"; 
-    
-    // Pequeno delay para o fade-in do root
-    setTimeout(() => {
-        kittyRoot.classList.add("show");
-        window.dispatchEvent(new Event('resize'));
-    }, 10);
-
-    window.scrollTo(0, 0);
+    updateView(false);
   });
 
   /* =========================
@@ -286,5 +263,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 👉 tenta sair mais cedo se carregar rápido
   window.addEventListener("load", hideLoader);
+
+/* =========================
+     CONTROLE DE VISÃO (SPA)
+  ========================= */
+  function updateView(showTerms = false) {
+    if (showTerms) {
+      // Esconde a Home e mostra os Termos
+      kittyRoot.style.display = "none";
+      kittyRoot.classList.remove("show");
+      termsPage.classList.add("show");
+      
+      // Adiciona uma classe no body para CSS específico de termos, se precisar
+      document.body.classList.add("terms-open");
+    } else {
+      // Volta para a Home
+      termsPage.classList.remove("show");
+      kittyRoot.style.display = "flex";
+      
+      // Delay minúsculo para a animação de fade-in do root funcionar
+      setTimeout(() => {
+        kittyRoot.classList.add("show");
+      }, 10);
+      
+      document.body.classList.remove("terms-open");
+    }
+
+    // O PULO DO GATO: Força o Carrd e o Navegador a recalcular tudo
+    window.scrollTo(0, 0);
+    window.dispatchEvent(new Event('resize'));
+    
+    // Atualiza as setas do carrossel caso o tamanho da tela tenha mudado
+    setTimeout(updateArrows, 100); 
+  }
 
 });
