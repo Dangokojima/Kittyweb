@@ -793,21 +793,22 @@ body {
 
 /* GRID */
 .reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 280px); /* tamanho fixo igual service */
+  display: flex;
   gap: 30px;
 
-  justify-content: center; /* 👈 ESSENCIAL */
+  justify-content: center; /* centraliza */
+
+  flex-wrap: wrap; /* quebra linha no mobile */
 }
 
 /* CARD */
 .review-card {
-  border: 2px solid #A855F7; /* roxo puro */
-
+  border: 2px solid #A855F7;
+  width: 280px;
   border-radius: 20px;
   padding: 24px;
 
-  background: rgba(255,255,255,0.02);
+  background: transparent; /* ou simplesmente remove */
 
   transition: 0.3s ease;
 }
