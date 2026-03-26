@@ -796,7 +796,15 @@ body {
   display: flex;
   gap: 30px;
 
-  justify-content: center;
+  overflow-x: auto;
+  overflow-y: visible;
+
+  scroll-behavior: smooth;
+
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  justify-content: center; /* 👈 centraliza */
   flex: 1;
   min-width: 0;
 }
@@ -805,12 +813,20 @@ body {
 .review-card {
   border: 2px solid #A855F7;
   width: 280px;
-  border-radius: 20px;
-  padding: 24px;
+  height: 150px;
 
-  background: transparent; /* ou simplesmente remove */
+  flex: 0 0 auto;
 
-  transition: 0.3s ease;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  transition: 0.3s;
 }
 
 /* HOVER (leve, elegante) */
