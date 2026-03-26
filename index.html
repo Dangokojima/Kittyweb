@@ -10,12 +10,64 @@ family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&
 family=UnifrakturCook:wght@700&
 family=Inika:wght@400;700&
 display=swap" rel="stylesheet">
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Dangokojima/Kittysiteimages@main/data/homestyle.css">
+<script defer src="https://cdn.jsdelivr.net/gh/Dangokojima/Kittysiteimages@main/data/script.js"></script>-->
+<link rel="stylesheet" href="./data/homestyle.css">
+<script defer src="./data/script.js"></script>
+
 <title>Kitty</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Dangokojima/Kittysiteimages@main/data/homestyle.css">
-<script defer src="https://cdn.jsdelivr.net/gh/Dangokojima/Kittysiteimages@main/data/script.js"></script>
 </head>
 
 <body>
+
+  <header class="kitty-header">
+    <div class="header-left">
+      <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/Logo.png" class="logo-img">
+    </div>
+
+    <nav class="header-center">
+      <a href="#about">
+        <span class="font-buttons" data-i18n="about">Sobre</span>
+      </a>
+
+      <a href="#portfolio">
+        <span class="font-buttons" data-i18n="portfolio">Trabalhos</span>
+      </a>
+
+      <a href="#contact">
+        <span class="font-buttons" data-i18n="contact">Contato</span>
+      </a>
+
+      <a href="#faq">
+        <span class="font-buttons" data-i18n="faq">FAQ</span>
+      </a>
+
+      <!-- VGEN -->
+      <a href="https://vgen.co/Kittyhikari" target="_blank">
+        <span>
+          <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/Vgenfulllogo.svg" style="height:15px;">
+        </span>
+      </a>
+    </nav>
+
+    <div class="header-right">
+      <button id="openPopup" class="cta font-serif" data-i18n="cta"></button>
+
+      <button id="themeToggle" class="icon-btn">
+        <img id="themeIcon">
+      </button>
+
+      <button id="langToggle" class="icon-btn lang-btn font-buttons">
+        <img id="langIcon">
+        <span id="langText">BR</span>
+      </button>
+
+      <button id="menuBtn" class="menu-btn icon-btn">
+        <img id="menuIcon">
+      </button>
+    </div>
+  </header>
+
 <!-- HERO -->
 <div class="hero">
 
@@ -42,13 +94,13 @@ display=swap" rel="stylesheet">
 
   <div class="portfolio-grid">
 
-    <div class="card"><img src="gallery/1.png" class="pos-center"></div>
-    <div class="card"><img src="gallery/2.png" class="pos-left"></div>
-    <div class="card"><img src="gallery/3.png" class="pos-right"></div>
+    <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/1.png" class="pos-center"></div>
+    <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/2.png" class="pos-left"></div>
+    <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/3.png" class="pos-right"></div>
 
-    <div class="card"><img src="gallery/4.png" class="pos-center"></div>
-    <div class="card"><img src="gallery/5.png" class="pos-left"></div>
-    <div class="card"><img src="gallery/6.png" class="pos-right"></div>
+    <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/4.png" class="pos-center"></div>
+    <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/5.png" class="pos-left"></div>
+    <div class="card"><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/gallery/6.png" class="pos-right"></div>
 
   </div>
 
@@ -64,30 +116,30 @@ display=swap" rel="stylesheet">
   <div class="services-wrapper">
 
     <!-- seta esquerda -->
-    <img src="images/arrow.svg" class="arrow-side left">
+    <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/arrow.svg" class="arrow-side left">
 
     <div class="services-grid">
 
       <div class="service-card">
-        <img src="images/service_1.svg" class="service-icon">
+        <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/service_1.svg" class="service-icon">
         <h4 data-i18n="service_label1"></h4>
         <p data-i18n="service_desc1"></p>
       </div>
 
       <div class="service-card">
-        <img src="images/service_2.svg" class="service-icon">
+        <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/service_2.svg" class="service-icon">
         <h4 data-i18n="service_label2"></h4>
         <p data-i18n="service_desc2"></p>
       </div>
 
       <div class="service-card">
-        <img src="images/service_3.svg" class="service-icon">
+        <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/service_3.svg" class="service-icon">
         <h4 data-i18n="service_label3"></h4>
         <p data-i18n="service_desc3"></p>
       </div>
 
       <div class="service-card">
-        <img src="images/service_4.svg" class="service-icon">
+        <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/service_4.svg" class="service-icon">
         <h4 data-i18n="service_label4"></h4>
         <p data-i18n="service_desc4"></p>
       </div>
@@ -95,7 +147,7 @@ display=swap" rel="stylesheet">
     </div>
 
     <!-- seta direita -->
-    <img src="images/arrow.svg" class="arrow-side right">
+    <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/arrow.svg" class="arrow-side right">
 
   </div>
 
@@ -107,7 +159,7 @@ display=swap" rel="stylesheet">
 
     <!-- IMAGEM -->
     <div class="faq-image">
-      <img src="images/faq.png">
+      <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/faq.png">
     </div>
 
     <!-- CONTEÚDO -->
@@ -187,54 +239,6 @@ display=swap" rel="stylesheet">
   </div>
 
 </section>
-
-<header class="kitty-header">
-  <div class="header-left">
-    <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/Logo.png" class="logo-img">
-  </div>
-
-  <nav class="header-center">
-    <a href="#about">
-      <span class="font-buttons" data-i18n="about">Sobre</span>
-    </a>
-
-    <a href="#portfolio">
-      <span class="font-buttons" data-i18n="portfolio">Trabalhos</span>
-    </a>
-
-    <a href="#contact">
-      <span class="font-buttons" data-i18n="contact">Contato</span>
-    </a>
-
-    <a href="#faq">
-      <span class="font-buttons" data-i18n="faq">FAQ</span>
-    </a>
-
-    <!-- VGEN -->
-    <a href="https://vgen.co/Kittyhikari" target="_blank">
-      <span>
-        <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/Vgenfulllogo.svg" style="height:15px;">
-      </span>
-    </a>
-  </nav>
-
-  <div class="header-right">
-    <button id="openPopup" class="cta font-serif" data-i18n="cta"></button>
-
-    <button id="themeToggle" class="icon-btn">
-      <img id="themeIcon">
-    </button>
-
-    <button id="langToggle" class="icon-btn lang-btn font-buttons">
-      <img id="langIcon">
-      <span id="langText">BR</span>
-    </button>
-
-    <button id="menuBtn" class="menu-btn icon-btn">
-      <img id="menuIcon">
-    </button>
-  </div>
-</header>
 
 <div id="overlay" class="overlay"></div>
 

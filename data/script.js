@@ -1,15 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* =========================
-     BASE
-  ========================= */
   const BASE = "https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main";
 
-  /* =========================
-     ELEMENTOS
-  ========================= */
+  // =========================
+  // ELEMENTOS
+  // =========================
 
-  // UI geral
   const themeIcon = document.getElementById("themeIcon");
   const langText = document.getElementById("langText");
   const langIcon = document.getElementById("langIcon");
@@ -25,52 +21,57 @@ document.addEventListener("DOMContentLoaded", () => {
   const popupText = document.getElementById("popupText");
 
   const closeIcon = document.getElementById("closeIcon");
+  const closeBtn = document.getElementById("closeBtn");
+  const logoWhite = document.getElementById("logoWhite");
 
-  // Services carousel
   const grid = document.querySelector(".services-grid");
   const leftArrow = document.querySelector(".arrow-side.left");
   const rightArrow = document.querySelector(".arrow-side.right");
 
-  /* =========================
-     ASSETS
-  ========================= */
+  // =========================
+  // SAFE HELPER 😏
+  // =========================
+  const safe = (el, fn) => el && fn(el);
 
-  langIcon.src = `${BASE}/images/lang.svg`;
-  menuIcon.src = `${BASE}/images/menu.svg`;
-  closeIcon.src = `${BASE}/images/close.svg`;
-  document.getElementById("logoWhite").src = `${BASE}/images/Logowhite.png`;
+  // =========================
+  // ASSETS
+  // =========================
 
-  document.getElementById("closeBtn").onclick = closeMenu;
+  safe(langIcon, el => el.src = `${BASE}/images/lang.svg`);
+  safe(menuIcon, el => el.src = `${BASE}/images/menu.svg`);
+  safe(closeIcon, el => el.src = `${BASE}/images/close.svg`);
+  safe(logoWhite, el => el.src = `${BASE}/images/Logowhite.png`);
 
-  // Social icons
+  if (closeBtn) closeBtn.onclick = closeMenu;
+
   document.querySelectorAll("[data-social]").forEach(el=>{
     el.src = `${BASE}/images/${el.dataset.social}.svg`;
   });
 
-/* =========================
-   FAQ ACCORDION
-========================= */
+  // =========================
+  // FAQ
+  // =========================
 
-document.querySelectorAll(".faq-question").forEach(q => {
-  q.addEventListener("click", () => {
+  document.querySelectorAll(".faq-question").forEach(q => {
+    q.addEventListener("click", () => {
 
-    const item = q.parentElement;
+      const item = q.parentElement;
 
-    // fecha todos
-    document.querySelectorAll(".faq-item").forEach(i => {
-      i.classList.remove("active");
-      i.querySelector(".faq-icon").textContent = "+";
+      document.querySelectorAll(".faq-item").forEach(i => {
+        i.classList.remove("active");
+        const icon = i.querySelector(".faq-icon");
+        if (icon) icon.textContent = "+";
+      });
+
+      item.classList.add("active");
+      const icon = item.querySelector(".faq-icon");
+      if (icon) icon.textContent = "×";
     });
-
-    // abre o clicado
-    item.classList.add("active");
-    item.querySelector(".faq-icon").textContent = "×";
   });
-});
 
-  /* =========================
-     LANG
-  ========================= */
+  // =========================
+  // LANG
+  // =========================
 
   let currentLang = localStorage.getItem("lang") || (navigator.language.includes("pt") ? "pt":"en");
   let translations = {};
@@ -89,57 +90,70 @@ document.querySelectorAll(".faq-question").forEach(q => {
       const key = el.dataset.i18n;
       const value = translations[key];
 
-      el.innerHTML = (value || el.textContent || "")
-        .replace(/\n/g, "<br>");
+      el.innerHTML = (value || el.textContent || "").replace(/\n/g, "<br>");
     });
 
-    langText.textContent = currentLang==="pt"?"BR":"EN";
+    if (langText) langText.textContent = currentLang==="pt"?"BR":"EN";
   }
 
   loadTranslations(currentLang);
 
-  document.getElementById("langToggle").onclick=()=>{
-    currentLang = currentLang==="pt"?"en":"pt";
-    localStorage.setItem("lang",currentLang);
-    loadTranslations(currentLang);
-  };
+  const langToggle = document.getElementById("langToggle");
+  if (langToggle) {
+    langToggle.onclick = () => {
+      currentLang = currentLang==="pt"?"en":"pt";
+      localStorage.setItem("lang",currentLang);
+      loadTranslations(currentLang);
+    };
+  }
 
-  /* =========================
-     THEME
-  ========================= */
+  // =========================
+  // THEME
+  // =========================
 
   function updateTheme(){
     const light = document.body.classList.contains("light");
-    themeIcon.src = light ? `${BASE}/images/light.svg` : `${BASE}/images/dark.svg`;
+    safe(themeIcon, el => {
+      el.src = light
+        ? `${BASE}/images/light.svg`
+        : `${BASE}/images/dark.svg`;
+    });
   }
 
   updateTheme();
 
-  document.getElementById("themeToggle").onclick=()=>{
-    document.body.classList.toggle("light");
-    localStorage.setItem("theme", document.body.classList.contains("light")?"light":"dark");
-    updateTheme();
-  };
-
-  /* =========================
-     MENU
-  ========================= */
-
-  menuBtn.onclick=()=>{
-    sidePanel.classList.toggle("open");
-    overlay.classList.toggle("show");
-  };
-
-  overlay.onclick=closeMenu;
-
-  function closeMenu(){
-    sidePanel.classList.remove("open");
-    overlay.classList.remove("show");
+  const themeToggle = document.getElementById("themeToggle");
+  if (themeToggle) {
+    themeToggle.onclick = () => {
+      document.body.classList.toggle("light");
+      localStorage.setItem("theme",
+        document.body.classList.contains("light")?"light":"dark"
+      );
+      updateTheme();
+    };
   }
 
-  /* =========================
-     POPUP
-  ========================= */
+  // =========================
+  // MENU
+  // =========================
+
+  if (menuBtn && sidePanel && overlay) {
+    menuBtn.onclick = () => {
+      sidePanel.classList.toggle("open");
+      overlay.classList.toggle("show");
+    };
+
+    overlay.onclick = closeMenu;
+  }
+
+  function closeMenu(){
+    safe(sidePanel, el => el.classList.remove("open"));
+    safe(overlay, el => el.classList.remove("show"));
+  }
+
+  // =========================
+  // POPUP
+  // =========================
 
   const links={
     pt:"https://tally.so/r/gD0Qq1",
@@ -147,6 +161,8 @@ document.querySelectorAll(".faq-question").forEach(q => {
   };
 
   function openForm(){
+    if (!popup || !popupText) return;
+
     popup.classList.add("show");
     popupText.textContent = translations.popup || "...";
 
@@ -156,16 +172,19 @@ document.querySelectorAll(".faq-question").forEach(q => {
     },600);
   }
 
-  openPopup.onclick = openForm;
+  if (openPopup) openPopup.onclick = openForm;
 
-  mobilePopup.onclick = () => {
-    closeMenu();
-    openForm();
-  };
+  if (mobilePopup) {
+    mobilePopup.onclick = () => {
+      closeMenu();
+      openForm();
+    };
+  }
 
-  /* =========================
-     SERVICES CAROUSEL
-  ========================= */
+  // =========================
+  // CAROUSEL
+  // =========================
+
   function updateArrows() {
     if (!grid || !leftArrow || !rightArrow) return;
 
@@ -174,43 +193,27 @@ document.querySelectorAll(".faq-question").forEach(q => {
 
     const isOverflowing = maxScroll > 5;
 
-    // 👉 centraliza ou alinha
     grid.style.justifyContent = isOverflowing ? "flex-start" : "center";
 
     const TOLERANCE = 10;
 
-    // 👉 estado da seta esquerda
-    if (current <= TOLERANCE) {
-      leftArrow.classList.add("disabled");
-    } else {
-      leftArrow.classList.remove("disabled");
-    }
-
-    // 👉 estado da seta direita
-    if (current >= maxScroll - TOLERANCE) {
-      rightArrow.classList.add("disabled");
-    } else {
-      rightArrow.classList.remove("disabled");
-    }
+    leftArrow.classList.toggle("disabled", current <= TOLERANCE);
+    rightArrow.classList.toggle("disabled", current >= maxScroll - TOLERANCE);
   }
 
   if (grid && leftArrow && rightArrow) {
 
     function scrollAndUpdate(offset) {
       grid.scrollBy({ left: offset, behavior: "smooth" });
-
-      // 👇 garante atualização após animação
       setTimeout(updateArrows, 350);
     }
 
     leftArrow.onclick = () => {
-      if (leftArrow.classList.contains("disabled")) return;
-      scrollAndUpdate(-300);
+      if (!leftArrow.classList.contains("disabled")) scrollAndUpdate(-300);
     };
 
     rightArrow.onclick = () => {
-      if (rightArrow.classList.contains("disabled")) return;
-      scrollAndUpdate(300);
+      if (!rightArrow.classList.contains("disabled")) scrollAndUpdate(300);
     };
 
     grid.addEventListener("scroll", () => {
@@ -218,20 +221,14 @@ document.querySelectorAll(".faq-question").forEach(q => {
     });
 
     window.addEventListener("resize", updateArrows);
-
-    // 👇 estado inicial correto
     setTimeout(updateArrows, 50);
   }
 
-  /* =========================
-     CLOSE HELPERS
-  ========================= */
+  // =========================
+  // CLOSE HELPERS
+  // =========================
 
-  document.querySelectorAll(".side-menu a").forEach(el=>{
-    el.addEventListener("click", closeMenu);
-  });
-
-  document.querySelectorAll(".socials img").forEach(el=>{
+  document.querySelectorAll(".side-menu a, .socials img").forEach(el=>{
     el.addEventListener("click", closeMenu);
   });
 
