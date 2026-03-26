@@ -564,7 +564,7 @@ body {
 /* MOBILE */
 @media (max-width:768px) {
   .header-center { display:none; }
-  #openPopup { display:none; }
+  #openTally { display:none; }
   .menu-btn { display:flex; }
 }
 
