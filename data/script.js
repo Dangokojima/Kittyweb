@@ -232,4 +232,44 @@ document.addEventListener("DOMContentLoaded", () => {
     el.addEventListener("click", closeMenu);
   });
 
+  // =========================
+  // TERMS SPA
+  // =========================
+
+  const kittyRoot = document.getElementById("kitty-root");
+  const termsPage = document.getElementById("termsPage");
+  const openTerms = document.getElementById("openTerms");
+  const closeTerms = document.getElementById("closeTerms");
+
+  function updateView(showTerms = false) {
+
+    if (showTerms) {
+      if (kittyRoot) kittyRoot.classList.add("hidden");
+      if (termsPage) termsPage.classList.add("show");
+      document.body.style.overflow = "hidden";
+    } else {
+      if (termsPage) termsPage.classList.remove("show");
+      if (kittyRoot) kittyRoot.classList.remove("hidden");
+      document.body.style.overflow = "";
+    }
+
+    window.scrollTo(0, 0);
+  }
+
+  // abrir
+  if (openTerms) {
+    openTerms.addEventListener("click", (e) => {
+      e.preventDefault();
+      updateView(true);
+    });
+  }
+
+  // fechar
+  if (closeTerms) {
+    closeTerms.addEventListener("click", (e) => {
+      e.preventDefault();
+      updateView(false);
+    });
+  }
+
 });
