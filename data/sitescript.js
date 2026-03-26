@@ -24,10 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.getElementById("closeBtn");
   const logoWhite = document.getElementById("logoWhite");
 
-  const grid = document.querySelector(".services-grid");
-  const leftArrow = document.querySelector(".arrow-side.left");
-  const rightArrow = document.querySelector(".arrow-side.right");
-
   // =========================
   // SAFE HELPER 😏
   // =========================
@@ -185,23 +181,30 @@ document.addEventListener("DOMContentLoaded", () => {
   // CAROUSEL
   // =========================
 
-  function updateArrows() {
+  const servicesGrid = document.querySelector(".services-grid");
+  const servicesLeft = document.querySelector(".services-section .arrow-side.left");
+  const servicesRight = document.querySelector(".services-section .arrow-side.right");
+
+  const reviewsGrid = document.querySelector(".reviews-grid");
+  const reviewsLeft = document.querySelector(".reviews-section .arrow-side.left");
+  const reviewsRight = document.querySelector(".reviews-section .arrow-side.right");
+
+  function setupCarousel(grid, leftArrow, rightArrow) {
     if (!grid || !leftArrow || !rightArrow) return;
 
-    const maxScroll = grid.scrollWidth - grid.clientWidth;
-    const current = Math.round(grid.scrollLeft);
+    function updateArrows() {
+      const maxScroll = grid.scrollWidth - grid.clientWidth;
+      const current = Math.round(grid.scrollLeft);
 
-    const isOverflowing = maxScroll > 5;
+      const isOverflowing = maxScroll > 5;
 
-    grid.style.justifyContent = isOverflowing ? "flex-start" : "center";
+      grid.style.justifyContent = isOverflowing ? "flex-start" : "center";
 
-    const TOLERANCE = 10;
+      const TOLERANCE = 10;
 
-    leftArrow.classList.toggle("disabled", current <= TOLERANCE);
-    rightArrow.classList.toggle("disabled", current >= maxScroll - TOLERANCE);
-  }
-
-  if (grid && leftArrow && rightArrow) {
+      leftArrow.classList.toggle("disabled", current <= TOLERANCE);
+      rightArrow.classList.toggle("disabled", current >= maxScroll - TOLERANCE);
+    }
 
     function scrollAndUpdate(offset) {
       grid.scrollBy({ left: offset, behavior: "smooth" });
@@ -223,6 +226,10 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", updateArrows);
     setTimeout(updateArrows, 50);
   }
+
+  // 🔥 AQUI que você chama
+  setupCarousel(servicesGrid, servicesLeft, servicesRight);
+  setupCarousel(reviewsGrid, reviewsLeft, reviewsRight);
 
   // =========================
   // CLOSE HELPERS
@@ -347,4 +354,5 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
+
 });
