@@ -260,7 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       loader.classList.add("hide");
       root.classList.add("show");
-    }, 500);
+    }, 1000);
 
   });
 
