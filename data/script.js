@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const rightArrow = document.querySelector(".arrow-side.right");
 
 /* =========================
-     TERMS (Ajustado)
+     TERMS (Ajustado para SPA)
   ========================= */
   const kittyRoot = document.getElementById("kitty-root");
   const termsPage = document.getElementById("termsPage");
@@ -42,16 +42,35 @@ document.addEventListener("DOMContentLoaded", () => {
   openTerms?.addEventListener("click", (e) => {
     e.preventDefault();
     
-    kittyRoot.style.display = "none"; // Esconde a Home toda
-    termsPage.classList.add("show"); // Mostra os termos
-    window.scrollTo(0, 0);           // Sobe pro topo
+    // 1. Esconde a Home
+    kittyRoot.style.display = "none"; 
+    kittyRoot.classList.remove("show");
+
+    // 2. Mostra os termos
+    termsPage.classList.add("show"); 
+    
+    // 3. Reseta o scroll e avisa o Carrd que o tamanho mudou
+    window.scrollTo(0, 0);           
+    window.dispatchEvent(new Event('resize')); 
   });
 
   // FECHAR TERMOS
-  closeTerms?.addEventListener("click", () => {
+  closeTerms?.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // 1. Esconde os termos
     termsPage.classList.remove("show");
-    kittyRoot.style.display = "flex"; // Volta o conteúdo da Home
-    // Opcional: rolar de volta para o footer ou onde o usuário estava
+
+    // 2. Volta a Home (usamos flex para manter seu layout original)
+    kittyRoot.style.display = "flex"; 
+    
+    // Pequeno delay para o fade-in do root
+    setTimeout(() => {
+        kittyRoot.classList.add("show");
+        window.dispatchEvent(new Event('resize'));
+    }, 10);
+
+    window.scrollTo(0, 0);
   });
 
   /* =========================

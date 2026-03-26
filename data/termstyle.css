@@ -1,45 +1,33 @@
-/* Garante que a página de termos cubra TUDO */
+/* Página de Termos - Agora no fluxo do site */
 .terms-page {
-  position: fixed !important;
-  top: 0;
-  left: 0;
+  display: none; /* Escondido por padrão */
   width: 100%;
-  height: 100%;
-  background: #111; /* Cor de fundo sólida para não vazar o site atrás */
-  z-index: 99999 !important;
-  display: none; /* Começa escondido */
-  overflow-y: auto;
-  padding: 40px 20px;
+  min-height: 80vh; /* Garante que ocupe a tela */
+  background: var(--bg);
+  color: #fff;
+  padding: 120px 20px 60px; /* Padding top para não ficar embaixo do header fixo */
+  position: relative;
+  z-index: 50;
 }
 
 .terms-page.show {
   display: block !important;
 }
 
-/* Ajuste do container interno */
+/* Ajuste do container interno para centralizar */
 .terms-container {
-  max-width: 800px;
-  margin: 0 auto;
-  color: #fff;
-}
-
-.terms-content {
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
 }
 
-.terms-content h1 {
-  margin-bottom: 10px;
-}
-
 .terms-box {
   margin-top: 40px;
   text-align: left;
-
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   padding: 30px;
   border-radius: 12px;
-
-  line-height: 1.6;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  line-height: 1.8;
+  color: #eee;
 }
