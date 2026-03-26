@@ -43,26 +43,17 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================= */
 
   function updateView(showTerms = false) {
-    console.log("[KittyDebug] Trocando visão. Mostrar termos?", showTerms);
-    
+    console.log("[KittyDebug] Trocando visão:", showTerms);
+
     if (showTerms) {
-      if(kittyRoot) kittyRoot.style.display = "none";
-      if(termsPage) {
-        termsPage.style.display = "block"; // Força a exibição
-        setTimeout(() => termsPage.classList.add("show"), 10);
-      }
+      kittyRoot.classList.remove("show");
+      termsPage.classList.add("show");
     } else {
-      if(termsPage) {
-        termsPage.classList.remove("show");
-        termsPage.style.display = "none";
-      }
-      if(kittyRoot) {
-        kittyRoot.style.display = "flex";
-        setTimeout(() => kittyRoot.classList.add("show"), 10);
-      }
+      termsPage.classList.remove("show");
+      kittyRoot.classList.add("show");
     }
+
     window.scrollTo(0, 0);
-    window.dispatchEvent(new Event('resize'));
   }
 
   // Captura o clique de forma agressiva (impede o comportamento do link)

@@ -170,38 +170,6 @@ h3 { font-size: clamp(18px, 1.2vw + 12px, 26px); }
 }
 
 /* =========================
-   ROOT & TERMS (SPA SWITCH)
-========================= */
-#kitty-root {
-  opacity: 0;
-  transition: opacity 0.8s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-#kitty-root.show { opacity: 1; }
-
-.terms-page {
-  display: none;
-  padding: 120px 20px 60px; /* Padding top para não sumir sob o header fixo */
-  min-height: 80vh;
-  background: var(--bg);
-}
-
-.terms-page.show { display: block !important; }
-
-.terms-container { max-width: 900px; margin: 0 auto; text-align: center; }
-.terms-box {
-  margin-top: 40px;
-  text-align: left;
-  background: rgba(255,255,255,0.05);
-  padding: 30px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.1);
-  line-height: 1.8;
-}
-
-/* =========================
    HERO
 ========================= */
 .hero {

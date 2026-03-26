@@ -1,14 +1,12 @@
-/* Página de Termos - Agora no fluxo do site */
 .terms-page {
   position: fixed;
   inset: 0;
-
   background: var(--bg);
 
   opacity: 0;
   pointer-events: none;
 
-  z-index: 999999; /* 👈 mais alto que tudo */
+  z-index: 999999;
 
   display: flex;
   justify-content: center;
@@ -25,20 +23,11 @@
   pointer-events: auto;
 }
 
-/* Ajuste do container interno para centralizar */
-.terms-container {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
+#kitty-root {
+  transition: opacity 0.4s ease;
 }
 
-.terms-box {
-  margin-top: 40px;
-  text-align: left;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 30px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  line-height: 1.8;
-  color: #eee;
+#kitty-root:not(.show) {
+  opacity: 0;
+  pointer-events: none;
 }
