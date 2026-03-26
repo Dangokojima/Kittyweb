@@ -33,30 +33,26 @@ document.addEventListener("DOMContentLoaded", () => {
 /* =========================
      TERMS (Ajustado)
   ========================= */
+  const kittyRoot = document.getElementById("kitty-root");
   const termsPage = document.getElementById("termsPage");
-  const openTermsBtn = document.getElementById("openTerms");
-  const closeTermsBtn = document.getElementById("closeTerms");
+  const openTerms = document.getElementById("openTerms");
+  const closeTerms = document.getElementById("closeTerms");
 
-  if (openTermsBtn && termsPage) {
-    openTermsBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation(); // Evita que o Carrd tente interpretar o clique
-      
-      termsPage.classList.add("show");
-      document.body.style.overflow = "hidden"; // Trava o scroll do site ao fundo
-      
-      // Força o scroll dos termos para o topo ao abrir
-      termsPage.scrollTo(0, 0);
-    });
-  }
+  // ABRIR TERMOS
+  openTerms?.addEventListener("click", (e) => {
+    e.preventDefault();
+    
+    kittyRoot.style.display = "none"; // Esconde a Home toda
+    termsPage.classList.add("show"); // Mostra os termos
+    window.scrollTo(0, 0);           // Sobe pro topo
+  });
 
-  if (closeTermsBtn) {
-    closeTermsBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      termsPage.classList.remove("show");
-      document.body.style.overflow = ""; // Devolve o scroll ao site
-    });
-  }
+  // FECHAR TERMOS
+  closeTerms?.addEventListener("click", () => {
+    termsPage.classList.remove("show");
+    kittyRoot.style.display = "flex"; // Volta o conteúdo da Home
+    // Opcional: rolar de volta para o footer ou onde o usuário estava
+  });
 
   /* =========================
      ASSETS
