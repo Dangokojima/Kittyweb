@@ -30,25 +30,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const leftArrow = document.querySelector(".arrow-side.left");
   const rightArrow = document.querySelector(".arrow-side.right");
 
-  /* =========================
-     TERMS (🔥 NOVO)
+/* =========================
+     TERMS (Ajustado)
   ========================= */
-
   const termsPage = document.getElementById("termsPage");
-  const openTerms = document.getElementById("openTerms");
-  const closeTerms = document.getElementById("closeTerms");
+  const openTermsBtn = document.getElementById("openTerms");
+  const closeTermsBtn = document.getElementById("closeTerms");
 
-  openTerms?.addEventListener("click", (e) => {
-    e.preventDefault();
+  if (openTermsBtn && termsPage) {
+    openTermsBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // Evita que o Carrd tente interpretar o clique
+      
+      termsPage.classList.add("show");
+      document.body.style.overflow = "hidden"; // Trava o scroll do site ao fundo
+      
+      // Força o scroll dos termos para o topo ao abrir
+      termsPage.scrollTo(0, 0);
+    });
+  }
 
-    termsPage.classList.add("show");
-    document.body.style.overflow = "hidden"; // trava scroll
-  });
-
-  closeTerms?.addEventListener("click", () => {
-    termsPage.classList.remove("show");
-    document.body.style.overflow = "";
-  });
+  if (closeTermsBtn) {
+    closeTermsBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      termsPage.classList.remove("show");
+      document.body.style.overflow = ""; // Devolve o scroll ao site
+    });
+  }
 
   /* =========================
      ASSETS
