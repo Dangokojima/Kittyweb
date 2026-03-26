@@ -24,28 +24,75 @@
     min-height: 100vh !important;
   }
 
-  /* Elementos Globais (Header e Footer) */
-  .kitty-header, .kitty-footer {
+  /* --- AJUSTE DO HEADER (O CORRETOR) --- */
+  .kitty-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 15px clamp(16px, 4vw, 30px) !important;
+    
+    display: flex !important;           /* Ativa o flexbox */
+    flex-direction: row !important;      /* Garante que fiquem lado a lado */
+    align-items: center !important;      /* Alinha verticalmente no meio */
+    justify-content: space-between !important; /* Joga Left e Right pras pontas */
+    
+    background: linear-gradient(to bottom, rgba(26,22,37,.95), rgba(26,22,37,0));
+    z-index: 1000;
+  }
+
+  /* Garante que o container da esquerda (Logo) ocupe espaço proporcional */
+  .header-left {
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 !important; 
+  }
+
+  /* Centraliza o menu (Sobre, Trabalhos, etc) */
+  .header-center {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex: 2 !important; /* Dá mais peso pro meio ficar no centro real */
+  }
+
+  /* Alinha os botões (CTA, Temas, Lang) para a direita */
+  .header-right {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+    flex: 1 !important;
+  }
+
+  /* Ajuste do Logo */
+  .logo-img {
+    height: clamp(60px, 10vw, 120px) !important;
+    object-fit: contain !important;
+  }
+
+  /* Elementos Globais (Footer) */
+  .kitty-footer {
     display: block !important;
     width: 100% !important;
     position: relative !important;
     z-index: 100;
   }
 
-  /* Root da Home (Conteúdo que "troca") */
+  /* Root da Home */
   #kitty-root {
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: calc(100vh - 160px); /* Desconto aproximado de header/footer */
+    min-height: calc(100vh - 160px);
   }
 
   /* Página de Termos */
   .terms-page {
-    display: none; /* Escondido por padrão */
+    display: none;
     width: 100%;
     min-height: 100vh;
-    padding: 100px 20px; /* Respiro para o header fixo se houver */
+    padding: 120px 20px 60px;
     background: #0b0b0b;
   }
 
