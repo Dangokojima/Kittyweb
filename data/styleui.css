@@ -982,8 +982,8 @@ body {
 
 /* LEFT */
 .footer-logo {
-  width: 120px;
-  margin-bottom: 10px;
+  width: 200px;
+  margin-bottom: 0px;
 }
 
 .footer-left p {
@@ -1067,7 +1067,7 @@ body {
   }
 
   .footer-logo {
-    width: 140px;
+    width: 300px;
   }
 
   /* LINKS */
