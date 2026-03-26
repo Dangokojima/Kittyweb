@@ -24,75 +24,64 @@
     min-height: 100vh !important;
   }
 
-  /* Root da Home - Pode ser escondido via JS */
+  /* Elementos Globais (Header e Footer) */
+  .kitty-header, .kitty-footer {
+    display: block !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 100;
+  }
+
+  /* Root da Home (Conteúdo que "troca") */
   #kitty-root {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     width: 100%;
-    position: relative;
+    min-height: calc(100vh - 160px); /* Desconto aproximado de header/footer */
   }
 
-  /* Estilo do Footer Independente */
-  .kitty-footer {
-    display: block !important;
-    position: relative !important;
-    width: 100% !important;
-    z-index: 10;
-    background: #0b0b0b; /* Garanta que a cor combine com seu tema */
-  }
-
-  /* Sistema de Termos (SPA) */
+  /* Página de Termos */
   .terms-page {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #0b0b0b;
-    z-index: 99999 !important;
     display: none; /* Escondido por padrão */
-    overflow-y: auto;
-    padding: 60px 20px;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px 20px; /* Respiro para o header fixo se houver */
+    background: #0b0b0b;
   }
 
   .terms-page.show {
     display: block !important;
-  }
-
-  /* Previne scroll do site ao fundo quando termos abrem */
-  body.terms-open {
-    overflow: hidden !important;
   }
 </style>
 </head>
 
 <body>
 
+  <header class="kitty-header">
+    <div class="header-left">
+      <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/Logo.png" class="logo-img">
+    </div>
+
+    <nav class="header-center">
+      <a href="#"><span class="font-buttons" data-i18n="about">Sobre</span></a>
+      <a href="#portfolio"><span class="font-buttons" data-i18n="portfolio">Trabalhos</span></a>
+      <a href="#contact"><span class="font-buttons" data-i18n="contact">Contato</span></a>
+      <a href="#faq"><span class="font-buttons" data-i18n="faq">FAQ</span></a>
+      <a href="https://vgen.co/Kittyhikari" target="_blank">
+        <span><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/Vgenfulllogo.svg" style="height:15px;"></span>
+      </a>
+    </nav>
+
+    <div class="header-right">
+      <button id="openPopup" class="cta font-serif" data-i18n="cta"></button>
+      <button id="themeToggle" class="icon-btn"><img id="themeIcon"></button>
+      <button id="langToggle" class="icon-btn lang-btn font-buttons"><img id="langIcon"><span id="langText">BR</span></button>
+      <button id="menuBtn" class="menu-btn icon-btn"><img id="menuIcon"></button>
+    </div>
+  </header>
+
   <div id="kitty-root">
-    <header class="kitty-header">
-      <div class="header-left">
-        <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/Logo.png" class="logo-img">
-      </div>
-
-      <nav class="header-center">
-        <a href="#"><span class="font-buttons" data-i18n="about">Sobre</span></a>
-        <a href="#portfolio"><span class="font-buttons" data-i18n="portfolio">Trabalhos</span></a>
-        <a href="#contact"><span class="font-buttons" data-i18n="contact">Contato</span></a>
-        <a href="#faq"><span class="font-buttons" data-i18n="faq">FAQ</span></a>
-        <a href="https://vgen.co/Kittyhikari" target="_blank">
-          <span><img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/Vgenfulllogo.svg" style="height:15px;"></span>
-        </a>
-      </nav>
-
-      <div class="header-right">
-        <button id="openPopup" class="cta font-serif" data-i18n="cta"></button>
-        <button id="themeToggle" class="icon-btn"><img id="themeIcon"></button>
-        <button id="langToggle" class="icon-btn lang-btn font-buttons"><img id="langIcon"><span id="langText">BR</span></button>
-        <button id="menuBtn" class="menu-btn icon-btn"><img id="menuIcon"></button>
-      </div>
-    </header>
-
+    
     <div class="hero">
       <section class="hero-content">
         <h1 class="font-title" data-i18n="hero_title"></h1>
@@ -140,13 +129,13 @@
         <div class="faq-content">
           <h2 class="font-serif" data-i18n="faq_header"></h2>
           <div class="faq-list">
-            <div class="faq-item active"><div class="faq-question" data-index="1"><span data-i18n="faq_title1"></span><span class="faq-icon">×</span></div><div class="faq-answer" data-i18n="faq_desc1"></div></div>
-            <div class="faq-item"><div class="faq-question" data-index="2"><span data-i18n="faq_title2"></span><span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq_desc2"></div></div>
-            <div class="faq-item"><div class="faq-question" data-index="3"><span data-i18n="faq_title3"></span><span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq_desc3"></div></div>
-            <div class="faq-item"><div class="faq-question" data-index="4"><span data-i18n="faq_title4"></span><span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq_desc4"></div></div>
-            <div class="faq-item"><div class="faq-question" data-index="5"><span data-i18n="faq_title5"></span><span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq_desc5"></div></div>
-            <div class="faq-item"><div class="faq-question" data-index="6"><span data-i18n="faq_title6"></span><span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq_desc6"></div></div>
-            <div class="faq-item"><div class="faq-question" data-index="7"><span data-i18n="faq_title7"></span><span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq_desc7"></div></div>
+             <div class="faq-item active"><div class="faq-question"><span data-i18n="faq_title1"></span><span class="faq-icon">×</span></div><div class="faq-answer" data-i18n="faq_desc1"></div></div>
+             <div class="faq-item"><div class="faq-question"><span data-i18n="faq_title2"></span><span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq_desc2"></div></div>
+             <div class="faq-item"><div class="faq-question"><span data-i18n="faq_title3"></span><span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq_desc3"></div></div>
+             <div class="faq-item"><div class="faq-question"><span data-i18n="faq_title4"></span><span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq_desc4"></div></div>
+             <div class="faq-item"><div class="faq-question"><span data-i18n="faq_title5"></span><span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq_desc5"></div></div>
+             <div class="faq-item"><div class="faq-question"><span data-i18n="faq_title6"></span><span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq_desc6"></div></div>
+             <div class="faq-item"><div class="faq-question"><span data-i18n="faq_title7"></span><span class="faq-icon">+</span></div><div class="faq-answer" data-i18n="faq_desc7"></div></div>
           </div>
         </div>
       </div>
@@ -172,12 +161,13 @@
       </div>
     </div>
     <div id="popup" class="popup"><div class="popup-content"><p id="popupText">...</p></div></div>
+
   </div> <div id="termsPage" class="terms-page">
     <div class="terms-container">
       <h1 class="font-title">Termos de Serviço</h1>
       <p class="terms-sub font-serif">Ao solicitar uma comissão, você declara que leu e concorda com todos os termos abaixo.</p>
       <div class="terms-box font-serif">
-          Suas regras de comissão aqui...
+          Aqui vão suas regras detalhadas...
       </div>
       <button id="closeTerms" class="cta">Voltar</button>
     </div>
