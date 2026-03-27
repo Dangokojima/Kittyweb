@@ -1180,6 +1180,13 @@ body {
   transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
+.terms-container h1,
+.terms-container .intro {
+  text-align: center;
+  color: #EED6C9;
+  opacity: 0.9;
+}
+
 .terms-page.show {
   opacity: 1;
   visibility: visible;
