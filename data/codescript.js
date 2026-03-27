@@ -310,23 +310,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function loadTerms() {
     const container = document.querySelector(".terms-container");
-
     if (!container) return;
 
     const lang = localStorage.getItem("lang") || "pt";
     const file = lang === "pt" ? "terms-pt.html" : "terms-en.html";
 
     try {
-      const res = await fetch(`./data/${file}?v=${Date.now()}`);
+      // 👇 garante tradução carregada
+      if (!translations || !translations.terms_title) {
+        await new Promise(resolve => {
+          loadTranslations(lang);
+          setTimeout(resolve, 200); // simples e suficiente aqui
+        });
+      }
+
+      const res = await fetch(`${BASE}/data/${file}?v=${Date.now()}`);
       const html = await res.text();
 
       container.innerHTML = `
         <h1 class="font-title">${translations.terms_title || "Terms"}</h1>
         ${html}
-        <button id="closeTerms" class="cta">Voltar</button>
+        <button id="closeTerms" class="cta">
+          ${translations.back || "Voltar"}
+        </button>
       `;
-      
-      // rebind do botão
+
       document.getElementById("closeTerms")?.addEventListener("click", (e)=>{
         e.preventDefault();
         updateView(false);
