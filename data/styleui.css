@@ -767,6 +767,12 @@ body {
 /* =========================
    REVIEWS
 ========================= */
+.reviews-section {
+  padding: 80px 20px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
 .reviews-wrapper {
   display: flex;
   align-items: center;
