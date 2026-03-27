@@ -275,6 +275,12 @@ body {
   border: none;
   background: none;
   cursor: pointer;
+
+  transition: transform 0.25s ease;
+}
+
+.icon-btn:hover {
+  transform: scale(1.15);
 }
 
 .icon-btn img { height: 18px; }
