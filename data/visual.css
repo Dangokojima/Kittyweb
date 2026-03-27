@@ -454,7 +454,7 @@ body {
 
 .portfolio-header {
   text-align: center;
-  margin-bottom: -0px;
+  margin-bottom: 40px;
 }
 
 .portfolio-header h2 {
@@ -678,7 +678,7 @@ body {
 /* CARD */
 .service-card {
   width: 280px;
-  height: 150px;
+  height: 180px;
 
   flex: 0 0 auto;
 
@@ -1038,6 +1038,7 @@ body {
 .footer-contact {
   font-weight: 600;
   text-align: right;
+  margin-bottom: 5px;
 }
 
 .footer-email {
