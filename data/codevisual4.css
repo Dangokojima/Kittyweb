@@ -1186,8 +1186,19 @@ body {
   transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
-.terms-container h1,
+.terms-container h1 {
+  font-size: 40px;
+  text-align: center;
+  background: linear-gradient(to bottom, #FFFFFF, #F5E4D9, #EED6C9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 0 12px rgba(238,214,201,0.25);
+  opacity: 0.9;
+}
+
 .terms-container .intro {
+  font-size: 20px;
   text-align: center;
   color: #EED6C9;
   opacity: 0.9;
@@ -1208,53 +1219,46 @@ body {
 }
 
 /* =========================
-   TERMS TYPOGRAPHY FIX (ANTI-CARRD FINAL BOSS)
+   TERMS TYPOGRAPHY (FIX REAL)
 ========================= */
 
-.terms-box {
-  all: revert;
-  font-family: 'Inika', serif !important;
+.terms-content {
+  font-family: 'Inika', serif;
+  line-height: 1.7;
   color: #eee;
-  line-height: 1.8;
+  text-align: left;
+}
+
+/* INTRO */
+.terms-content .intro {
+  text-align: center;
+  margin-bottom: 30px;
+  opacity: 0.9;
 }
 
 /* TÍTULOS */
-.terms-box h1,
-.terms-box h2,
-.terms-box h3 {
-  all: revert;
-  display: block;
-  font-weight: bold;
-  margin: 24px 0 12px;
+.terms-content h2 {
+  font-weight: 700;
+  font-size: 22px;
+  margin: 28px 0 12px;
 }
 
 /* PARÁGRAFOS */
-.terms-box p {
-  all: revert;
-  display: block;
-  margin-bottom: 12px;
+.terms-content p {
+  margin: 10px 0;
 }
 
 /* LISTAS */
-.terms-box ul {
-  all: revert;
-  display: block;
-  margin: 12px 0;
+.terms-content ul {
+  font-family: 'Inter', serif;
+  margin: 10px 0 20px;
   padding-left: 20px;
   list-style: disc;
 }
 
-.terms-box li {
-  all: revert;
-  display: list-item;
+.terms-content li {
   margin-bottom: 6px;
 }
-
-/* FORÇA QUEBRA DE LINHA */
-.terms-box {
-  white-space: normal;
-}
-
 /* =========================
    TALLY
 ========================= */
