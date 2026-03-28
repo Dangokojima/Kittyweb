@@ -1208,42 +1208,56 @@ body {
 }
 
 /* =========================
-   HARD RESET TERMS (ANTI-CARRD)
+   TERMS TYPOGRAPHY FIX (ANTI-CARRD FINAL BOSS)
 ========================= */
 
-.terms-box,
-.terms-box * {
-  all: revert;
-  box-sizing: border-box;
-}
-
-/* reaplica teu estilo depois do reset */
 .terms-box {
+  all: revert;
   font-family: 'Inika', serif !important;
-  line-height: 1.8 !important;
-  color: #eee !important;
-
-  white-space: pre-line; /* 👈 MUITO IMPORTANTE pro \n do JSON */
+  color: #eee;
+  line-height: 1.8;
 }
 
-/* títulos */
+/* TÍTULOS */
 .terms-box h1,
 .terms-box h2,
 .terms-box h3 {
-  margin: 20px 0 10px;
+  all: revert;
+  display: block;
   font-weight: bold;
+  margin: 24px 0 12px;
 }
 
-/* parágrafos */
+/* PARÁGRAFOS */
 .terms-box p {
+  all: revert;
+  display: block;
   margin-bottom: 12px;
 }
 
-/* listas */
+/* LISTAS */
+.terms-box ul {
+  all: revert;
+  display: block;
+  margin: 12px 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+
 .terms-box li {
-  margin-left: 20px;
+  all: revert;
+  display: list-item;
   margin-bottom: 6px;
 }
+
+/* FORÇA QUEBRA DE LINHA */
+.terms-box {
+  white-space: normal;
+}
+
+/* =========================
+   TALLY
+========================= */
 
 #tallyPage iframe {
   border-radius: 12px;
