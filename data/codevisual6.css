@@ -86,7 +86,7 @@ body {
   align-items: center;
   gap: 20px;
   background: linear-gradient(to bottom, rgba(26,22,37,.95), rgba(26,22,37,0));
-  z-index: 1000000;
+  z-index: 9;
   color: #fff;
 }
 
@@ -322,7 +322,7 @@ body {
 
   transform: translateX(100%);
   transition: 0.4s ease;
-  z-index: 2;
+  z-index: 100;
 }
 
 .side-panel.open {
@@ -483,7 +483,7 @@ body {
   );
 
   pointer-events: none;
-  z-index: 2; /* 👈 ISSO AQUI resolve */
+  z-index: 2;
 }
 
 /* IMAGEM */
@@ -591,7 +591,7 @@ body {
   background:rgba(0,0,0,.7);
   justify-content:center;
   align-items:center;
-  z-index:9999;
+  z-index:9;
 }
 
 .popup.show { display:flex; }
@@ -994,7 +994,7 @@ body {
     #2a1f3d 40%,
     #6b3fa0
   );
-  z-index: 1000000;
+  z-index: 9;
 }
 
 .footer-container {
@@ -1157,7 +1157,7 @@ body {
   visibility: hidden;
   pointer-events: none;
 
-  z-index: 1000;
+  z-index: 8;
 
   transition: opacity 0.4s ease, visibility 0.4s ease;
 }
@@ -1236,6 +1236,7 @@ body {
 .terms-content li {
   margin-bottom: 6px;
 }
+
 /* =========================
    TALLY
 ========================= */
@@ -1258,6 +1259,15 @@ body {
   display: block;
 }
 
+@media (max-width: 768px) {
+
+  #tallyPage .terms-container {
+    margin-top: 80px; /* 👈 empurra pra baixo */
+    padding-top: 20px; /* opcional, mais respiro interno */
+  }
+
+}
+
 /* aplica só no tema claro */
 body.light #tallyPage iframe {
   filter: invert(1) hue-rotate(180deg);
@@ -1268,10 +1278,14 @@ body:not(.light) #tallyPage iframe {
   filter: none;
 }
 
+/* =========================
+   Works
+========================= */
+
 .portfolio-full {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 120px 20px;
+  padding: 0px 20px;
 }
 
 .portfolio-big-title {
@@ -1303,5 +1317,5 @@ body:not(.light) #tallyPage iframe {
 .portfolio-full-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap:10px;
 }
