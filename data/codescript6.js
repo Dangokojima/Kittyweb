@@ -555,7 +555,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
           div.innerHTML = `
             <img src="./gallery/${category}/${item.file}">
-            <span data-i18n="filter_${category}"></span>
           `;
 
           grid.appendChild(div);
