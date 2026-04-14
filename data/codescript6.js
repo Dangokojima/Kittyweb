@@ -428,4 +428,79 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  const portfolioPage = document.getElementById("portfolioPage");
+  const openPortfolio = document.getElementById("openPortfolio");
+  const closePortfolio = document.querySelector(".close-portfolio");
+
+  function closePortfolioPage(){
+    portfolioPage.classList.remove("show");
+    kittyRoot.classList.remove("hidden");
+    document.body.style.overflow = "";
+  }
+
+  closePortfolio?.addEventListener("click", (e)=>{
+    e.preventDefault();
+    closePortfolioPage();
+  });
+
+  function openPortfolioPage(){
+    kittyRoot.classList.add("hidden");
+    portfolioPage.classList.add("show");
+    document.body.style.overflow = "hidden";
+  }
+
+  openPortfolio?.addEventListener("click", (e)=>{
+    e.preventDefault();
+    openPortfolioPage();
+  });
+
+  function setupPortfolioFilters(){
+
+    const buttons = document.querySelectorAll(".portfolio-filters button");
+    const cards = document.querySelectorAll(".portfolio-full-grid .card");
+
+    if (!buttons.length || !cards.length) return;
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+
+        // ativa botão
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const filter = btn.dataset.filter;
+
+        cards.forEach(card => {
+          const category = card.dataset.category;
+
+          if (filter === "all" || category === filter) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+      });
+    });
+
+  }
+
+  function openPortfolioPage(){
+    if (!portfolioPage || !kittyRoot) return;
+
+    kittyRoot.classList.add("hidden");
+    portfolioPage.classList.add("show");
+    document.body.style.overflow = "hidden";
+
+    setupPortfolioFilters(); // 👈 ISSO AQUI
+  }
+
+  // botão do header (IMPORTANTE)
+  document.querySelectorAll('a[href="#portfolio"]').forEach(el=>{
+    el.addEventListener("click",(e)=>{
+      e.preventDefault();
+      openPortfolioPage();
+    });
+  });
+
 });
