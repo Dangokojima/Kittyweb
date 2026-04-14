@@ -4,11 +4,55 @@
   --bg: #1a1625;
   --text: #ffffff;
   --accent: #a855f7;
+
+  --card-bg: #2a1f3d;
+  --border: #6b3fa0;
+  --hover: #ffba4b;
+
+  --text-soft: #EED6C9;
+
+  --title-grad-1: #FFFFFF;
+  --title-grad-2: #F5E4D9;
+  --title-grad-3: var(--text-soft);
+
+  --title-glow: rgba(238,214,201,0.25);
+
+  --hero-overlay-start: rgba(0,0,0,0);
+  --hero-overlay-end: var(--bg);
+
+  --hero-image: url("https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/BG/BGTop.png");
 }
 
-body.light {
+
+/* =========================
+   DARK (root)
+========================= */
+
+body.theme-dark {
+  /* Se precisar mexer é só alterar o root */
+}
+
+/* =========================
+   LIGHT
+========================= */
+
+body.theme-light {
   --bg: #EED6C9;
   --text: #1a1625;
+
+  --card-bg: #ffffff;
+  --border: #d6bfae;
+
+  --text-soft: #5a4a42;
+
+  --title-grad-1: #1a1625;
+  --title-grad-2: #6b3fa0;
+  --title-grad-3: #a855f7;
+
+  --title-glow: rgba(168,85,247,0.25);
+
+  --hero-overlay-start: rgba(255,255,255,0.2);
+  --hero-overlay-end: var(--bg);
 }
 
 body {
@@ -40,9 +84,15 @@ body {
   inset: 0 auto auto 0;
   width: 100%;
   min-height: 600px;
+
   background:
-    linear-gradient(to bottom, rgba(0,0,0,0), var(--bg)),
-    url("https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/BG/BGTop.png") center/cover no-repeat;
+    linear-gradient(
+      to bottom,
+      var(--hero-overlay-start),
+      var(--hero-overlay-end)
+    ),
+    var(--hero-image) center/cover no-repeat;
+
   z-index: 0;
 }
 
@@ -61,11 +111,17 @@ body {
   font-size: clamp(28px, 5vw, 48px);
   margin-bottom: 4px;
 
-  background: linear-gradient(to bottom, #FFFFFF, #F5E4D9, #EED6C9);
+  background: linear-gradient(
+    to bottom,
+    var(--title-grad-1),
+    var(--title-grad-2),
+    var(--title-grad-3)
+  );
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  text-shadow: 0 0 12px rgba(238,214,201,0.25);
+  text-shadow: 0 0 12px var(--title-glow);
 }
 
 .hero-content p {
@@ -73,8 +129,13 @@ body {
   line-height: 1.6;
   margin-bottom: 24px;
 
-  color: #EED6C9;
+  color: var(--text-soft);
   opacity: 0.95;
+}
+
+body.theme-light {
+  --hero-overlay-start: rgba(255,255,255,0.2);
+  --hero-overlay-end: var(--bg);
 }
 
 /* HEADER */
