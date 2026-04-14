@@ -1283,9 +1283,9 @@ body:not(.light) #tallyPage iframe {
 ========================= */
 
 .portfolio-full {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0px 20px;
+  margin-left: 0;
+  margin-right: auto;
+  padding: 0 20px;
 }
 
 .portfolio-big-title {
