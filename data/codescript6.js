@@ -405,9 +405,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function setupPortfolioFilters(){
 
     const buttons = document.querySelectorAll(".portfolio-filters button");
-    const cards = document.querySelectorAll(".portfolio-full-grid .card");
+    const items = document.querySelectorAll(".portfolio-full-grid .gallery-item");
 
-    if (!buttons.length || !cards.length) return;
+    if (!buttons.length || !items.length) return;
 
     buttons.forEach(btn => {
       btn.addEventListener("click", () => {
@@ -418,13 +418,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const filter = btn.dataset.filter;
 
-        cards.forEach(card => {
-          const category = card.dataset.category;
+        items.forEach(item => {
+          const category = item.dataset.category;
 
           if (filter === "all" || category === filter) {
-            card.style.display = "block";
+            item.style.display = "block";
           } else {
-            card.style.display = "none";
+            item.style.display = "none";
           }
         });
 
@@ -540,7 +540,7 @@ document.addEventListener("DOMContentLoaded", () => {
         items.forEach(item => {
 
           const div = document.createElement("div");
-          div.className = "card";
+          div.className = "gallery-item";
           div.dataset.category = category;
 
           div.innerHTML = `

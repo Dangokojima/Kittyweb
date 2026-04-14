@@ -1315,7 +1315,31 @@ body:not(.light) #tallyPage iframe {
 }
 
 .portfolio-full-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:10px;
+  column-count: 3;
+  column-gap: 10px;
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 10px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  border-radius: 8px; /* opcional */
+}
+
+@media (max-width: 1024px) {
+  .portfolio-full-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-full-grid {
+    column-count: 1;
+  }
 }
