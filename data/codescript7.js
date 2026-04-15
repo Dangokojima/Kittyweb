@@ -622,7 +622,7 @@ document.addEventListener("DOMContentLoaded", () => {
     grid.innerHTML = "";
 
     try {
-      const res = await fetch(`./data/gallery.json?v=${Date.now()}`);
+      const res = await fetch(`${BASE}/data/gallery.json?v=${Date.now()}`);
       const data = await res.json();
 
       Object.entries(data).forEach(([category, items]) => {
@@ -684,7 +684,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const file = lang === "pt" ? "price-pt.json" : "price-en.json";
 
     try {
-      const res = await fetch(`./data/${file}?v=${Date.now()}`);
+      const res = await fetch(`${BASE}/data/${file}?v=${Date.now()}`);
       const data = await res.json();
 
       data.categories.forEach(category => {
