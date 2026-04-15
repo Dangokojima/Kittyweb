@@ -699,15 +699,19 @@ document.addEventListener("DOMContentLoaded", () => {
               ${item.prices.map(p => `• ${p}`).join("<br>")}
             </div>
 
-            <div class="pricing-section">
-              <strong>${translations.features}</strong><br>
-              ${item.features.map(f => `• ${f}`).join("<br>")}
-            </div>
+            ${item.features?.length ? `
+              <div class="pricing-section">
+                <strong>${translations.features}</strong><br>
+                ${item.features.map(f => `• ${f}`).join("<br>")}
+              </div>
+            ` : ""}
 
-            <div class="pricing-section">
-              <strong>${translations.addons}</strong><br>
-              ${item.addons.map(a => `• ${a}`).join("<br>")}
-            </div>
+            ${item.addons?.length ? `
+              <div class="pricing-section">
+                <strong>${translations.addons}</strong><br>
+                ${item.addons.map(a => `• ${a}`).join("<br>")}
+              </div>
+            ` : ""}
 
             <div class="pricing-section">
               ⏳ <strong>${translations.delivery}:</strong> ${item.delivery}
