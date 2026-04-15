@@ -690,32 +690,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const card = document.createElement("div");
           card.className = "pricing-card";
-
+          
           card.innerHTML = `
             <div class="pricing-title">${item.name}</div>
 
-            <div class="pricing-section">
-              <strong>${translations.prices}</strong><br>
-              ${item.prices.map(p => `• ${p}`).join("<br>")}
-            </div>
+            ${item.prices?.length ? `
+              <div class="pricing-section">
+                <div class="pricing-label">${translations.prices}</div>
+                <ul>
+                  ${item.prices.map(p => `<li>${p}</li>`).join("")}
+                </ul>
+              </div>
+            ` : ""}
 
             ${item.features?.length ? `
               <div class="pricing-section">
-                <strong>${translations.features}</strong><br>
-                ${item.features.map(f => `• ${f}`).join("<br>")}
+                <div class="pricing-label">${translations.features}</div>
+                <ul>
+                  ${item.features.map(f => `<li>${f}</li>`).join("")}
+                </ul>
               </div>
             ` : ""}
 
             ${item.addons?.length ? `
               <div class="pricing-section">
-                <strong>${translations.addons}</strong><br>
-                ${item.addons.map(a => `• ${a}`).join("<br>")}
+                <div class="pricing-label">${translations.addons}</div>
+                <ul>
+                  ${item.addons.map(a => `<li>${a}</li>`).join("")}
+                </ul>
               </div>
             ` : ""}
 
-            <div class="pricing-section">
-              ⏳ <strong>${translations.delivery}:</strong> ${item.delivery}
-            </div>
+            ${item.delivery ? `
+              <div class="pricing-section">
+                <div class="pricing-label">${translations.delivery}</div>
+                <div class="pricing-delivery">⏳ ${item.delivery}</div>
+              </div>
+            ` : ""}
           `;
 
           grid.appendChild(card);

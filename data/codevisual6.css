@@ -1529,11 +1529,10 @@ body:not(.light) #tallyPage iframe {
 
 .pricing-section-title {
   font-family: 'UnifrakturCook';
-  font-size: 28px;
-  margin-bottom: 20px;
-  text-align: left;
+  font-size: 34px;
+  margin-bottom: 24px;
 
-  color: var(--text);
+  letter-spacing: 1px;
 }
 
 .pricing-grid {
@@ -1583,7 +1582,29 @@ body:not(.light) #tallyPage iframe {
 }
 
 .pricing-section {
-  margin-top: 15px;
-  font-size: 14px;
-  opacity: 0.8;
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.pricing-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  margin-bottom: 6px;
+  opacity: 0.9;
+}
+
+.pricing-section ul {
+  padding-left: 18px;
+  margin: 4px 0 12px;
+}
+
+.pricing-section li {
+  margin-bottom: 2px;
+  font-size: 15px;
+}
+
+.pricing-delivery {
+  font-size: 15px;
 }
