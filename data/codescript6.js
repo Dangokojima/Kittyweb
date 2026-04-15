@@ -570,6 +570,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (page === "pricing") {
       pricingPage?.classList.add("show");
+      await loadPricing();
     }
 
     // =========================
@@ -653,5 +654,54 @@ document.addEventListener("DOMContentLoaded", () => {
   imagePopup?.addEventListener("click", () => {
     imagePopup.classList.remove("show");
   });
+
+  async function loadPricing() {
+    const grid = document.getElementById("pricingGrid");
+    if (!grid) return;
+
+    grid.innerHTML = "";
+
+    const lang = localStorage.getItem("lang") || "pt";
+    const file = lang === "pt" ? "price-pt.json" : "price-en.json";
+
+    try {
+      const res = await fetch(`./data/${file}?v=${Date.now()}`);
+      const data = await res.json();
+
+      data.categories.forEach(category => {
+
+        category.items.forEach(item => {
+
+          const card = document.createElement("div");
+          card.className = "pricing-card";
+
+          card.innerHTML = `
+            <div class="pricing-title">${item.name}</div>
+            <div class="pricing-price">${item.price}</div>
+
+            <div class="pricing-section">
+              ${item.features.map(f => `• ${f}`).join("<br>")}
+            </div>
+
+            <div class="pricing-section">
+              <strong>Add-ons:</strong><br>
+              ${item.addons.map(a => `• ${a}`).join("<br>")}
+            </div>
+
+            <div class="pricing-section">
+              ⏳ ${item.delivery}
+            </div>
+          `;
+
+          grid.appendChild(card);
+
+        });
+
+      });
+
+    } catch (err) {
+      console.error("Erro ao carregar pricing:", err);
+    }
+  }
 
 });

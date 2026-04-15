@@ -42,7 +42,9 @@
         <span class="font-buttons" data-i18n="faq">FAQ</span>
       </a>
 
-      <a href="#" data-open="terms" data-i18n="tos"></a>
+      <a href="#" data-open="terms">
+        <span class="font-buttons" data-i18n="tos"></span>
+      </a>
 
       <a href="#footer">
         <span class="font-buttons" data-i18n="contact">Contato</span>
@@ -317,9 +319,15 @@
 
   <section id="pricingPage" class="terms-page">
     <div class="terms-container">
-      <h1 class="font-title">Pricing</h1>
-      <p>Em breve...</p>
-      <button class="cta" onclick="changePage('home')">Voltar</button>
+
+      <h1 class="font-title" data-i18n="pricing">Pricing</h1>
+
+      <div id="pricingGrid" class="pricing-grid"></div>
+
+      <button class="cta" onclick="changePage('home')">
+        Voltar
+      </button>
+
     </div>
   </section>
 

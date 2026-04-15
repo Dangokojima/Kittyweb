@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {
+      "title": "Streaming",
+      "items": [
+        {
+          "name": "PNGTuber",
+          "price": "From $80",
+          "delivery": "1 - 2 months",
+          "features": [
+            "Half Body model",
+            "4 PNGs (Talking, Closed Mouth, Blinking)"
+          ],
+          "addons": [
+            "Extra Expression: +$10 - $20",
+            "Arm Toggle: +$20 - $40+",
+            "Extra Outfit/Hair: +$30+",
+            "Pet/Item: +$15 - $50+"
+          ]
+        }
+      ]
+    }
+  ]
+}

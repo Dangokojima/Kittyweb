@@ -257,7 +257,7 @@ body.theme-light {
 /* BASE */
 .header-center a span {
   position: relative;
-  padding: 4px 8px; /* mantém o melhor valor */
+  padding: 4px 2px; /* mantém o melhor valor */
 }
 
 .header-center a span::after {
@@ -1521,4 +1521,42 @@ body:not(.light) #tallyPage iframe {
   object-fit: contain;
 
   border-radius: 12px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.pricing-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 24px;
+
+  transition: 0.3s;
+}
+
+.pricing-card:hover {
+  border-color: var(--hover);
+  box-shadow: 0 0 20px rgba(255,186,75,0.15);
+}
+
+.pricing-title {
+  font-family: 'UnifrakturCook';
+  font-size: 22px;
+}
+
+.pricing-price {
+  color: var(--hover);
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.pricing-section {
+  margin-top: 15px;
+  font-size: 14px;
+  opacity: 0.8;
 }
