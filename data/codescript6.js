@@ -656,10 +656,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   async function loadPricing() {
-    const grid = document.getElementById("pricingGrid");
-    if (!grid) return;
+    const container = document.getElementById("pricingSections");
+    if (!container) return;
 
-    grid.innerHTML = "";
+    container.innerHTML = "";
 
     const lang = localStorage.getItem("lang") || "pt";
     const file = lang === "pt" ? "price-pt.json" : "price-en.json";
@@ -670,6 +670,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       data.categories.forEach(category => {
 
+        const section = document.createElement("div");
+        section.className = "pricing-section-block";
+
+        section.innerHTML = `
+          <h2 class="pricing-section-title">${category.title}</h2>
+          <div class="pricing-grid"></div>
+        `;
+
+        const grid = section.querySelector(".pricing-grid");
+
         category.items.forEach(item => {
 
           const card = document.createElement("div");
@@ -677,7 +687,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
           card.innerHTML = `
             <div class="pricing-title">${item.name}</div>
-            <div class="pricing-price">${item.price}</div>
+
+            <div class="pricing-section">
+              ${item.prices.map(p => `• ${p}`).join("<br>")}
+            </div>
 
             <div class="pricing-section">
               ${item.features.map(f => `• ${f}`).join("<br>")}
@@ -694,9 +707,9 @@ document.addEventListener("DOMContentLoaded", () => {
           `;
 
           grid.appendChild(card);
-
         });
 
+        container.appendChild(section);
       });
 
     } catch (err) {
