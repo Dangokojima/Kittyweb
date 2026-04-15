@@ -145,7 +145,57 @@
           ]
         }
       ]
-    }
+    },
+    {
+      "title": "Games",
+      "items": [
+        {
+          "name": "Static Visual Novel Sprite",
+          "delivery": "1 - 2 months",
+          "features": [
+            "10 PNGs (talking & idle)",
+            "Expressions: Neutral, Happy, Sad, Shy, Angry",
+            "Nude base for customization",
+            "PSD file"
+          ],
+          "prices": [
+            "Simple Rendering (Manhwa): $180",
+            "Full Rendering: $350"
+          ],
+          "addons": [
+            "Extra Expression: +$10 - $20",
+            "Arm Toggle: +$20 - $40+",
+            "Extra Outfit: +$30+",
+            "Extra Hair: +$30+",
+            "Pet/Item: +$15 - $50+",
+            "Blink: +$10 (per additional expression)"
+          ]
+        },
 
+        {
+          "name": "Animated Visual Novel Sprite",
+          "delivery": "2 - 3 months",
+          "features": [
+            "Nude base for customization",
+            "Animations: blinking, breathing, talking",
+            "5 reactive expressions with talking (Neutral, Happy, Sad (crying), Shy, Angry)",
+            "PSD file",
+            "Live2D model files"
+          ],
+          "prices": [
+            "Simple Rendering (Manhwa): $600",
+            "Full Rendering: $900"
+          ],
+          "addons": [
+            "Extra Expression: +$20 - $50",
+            "Complex Expression (animated, e.g. crying): +$80+",
+            "Arm/Leg Toggle: +$80 - $150+",
+            "Extra Outfit: +$100 - $600+",
+            "Extra Hair: +$100 - $300+",
+            "Pet/Item: +$80 - $150+"
+          ]
+        }
+      ]
+    }
   ]
 }

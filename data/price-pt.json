@@ -145,6 +145,57 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Games",
+      "items": [
+        {
+          "name": "Sprite Visual Novel Estático",
+          "delivery": "1 - 2 meses",
+          "features": [
+            "10 PNG's (Falando e em silêncio)",
+            "Expressões: Neutro, feliz, triste, com vergonha e com raiva",
+            "Base nua para personalização",
+            "Arquivo PSD"
+          ],
+          "prices": [
+            "Renderização Simples (Manhwa): R$:700",
+            "Renderização Completa: R$:1400"
+          ],
+          "addons": [
+            "Expressão Extra: +R$: 10 - 20",
+            "Toggle Braço: R$: 30 - 50+",
+            "Roupa Extra: +R$: 50+",
+            "Cabelo Extra: +R$: 50+",
+            "Pet/Item: +R$: 20 - 100+",
+            "Piscar: +R$: 15 (por expressão)"
+          ]
+        },
+
+        {
+          "name": "Sprite Visual Novel Animado",
+          "delivery": "2 - 3 meses",
+          "features": [
+            "Base nua para personalização",
+            "Animações: piscar, respirar e falar",
+            "5 expressões reativas com fala (Neutro, feliz, triste (chorando), com vergonha, com raiva)",
+            "Arquivo PSD",
+            "Arquivos do modelo animado (Live2D)"
+          ],
+          "prices": [
+            "Renderização Simples (Manhwa): R$:2000",
+            "Renderização Completa: R$:3000"
+          ],
+          "addons": [
+            "Expressão Extra: +R$: 50 - 100",
+            "Expressão complexa (animada, ex: choro): +R$: 150+",
+            "Toggle Braço/Perna: R$: 150 - 200+",
+            "Roupa Extra: +R$: 200 - 2000+",
+            "Cabelo Extra: +R$: 200 - 500+",
+            "Pet/Item: +R$: 200 - 350+"
+          ]
+        }
+      ]
     }
   ]
 }
