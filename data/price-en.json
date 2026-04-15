@@ -5,17 +5,70 @@
       "items": [
         {
           "name": "PNGTuber",
-          "price": "From $80",
           "delivery": "1 - 2 months",
           "features": [
-            "Half Body model",
-            "4 PNGs (Talking, Closed Mouth, Blinking)"
+            "Half body model",
+            "4 PNGs (Talking, closed mouth, blinking)"
+          ],
+          "prices": [
+            "Simple Rendering (Manhwa): $80",
+            "Full Rendering: $120"
           ],
           "addons": [
             "Extra Expression: +$10 - $20",
             "Arm Toggle: +$20 - $40+",
             "Extra Outfit/Hair: +$30+",
             "Pet/Item: +$15 - $50+"
+          ]
+        },
+
+        {
+          "name": "VTuber (Art)",
+          "delivery": "2 - 3 months",
+          "features": [
+            "4 expressions (Sad, Angry, Shy, Happy)",
+            "Nude base",
+            "PSD file ready for rigging"
+          ],
+          "prices": [
+            "Standard Model: $900+ (Additional costs may apply depending on complexity)",
+            "Chibi Model: $600+ (Additional costs may apply depending on complexity)",
+            "Silly Chibi Model: $250+ (Additional costs may apply depending on complexity)"
+          ],
+          "addons": [
+            "Simple Expression: +$10 - $20",
+            "Complex Expression (animated, e.g. crying): +$25+",
+            "Arm/Leg Toggle: +$30 - $80+",
+            "Extra Outfit: +$50 - $300+",
+            "Extra Hair: +$80 - $200+",
+            "Simple Pet: +$40 - $80",
+            "TTS Pet: +$100 - $180"
+          ]
+        },
+
+        {
+          "name": "VTuber (Art + Rigging)",
+          "delivery": "3 - 6 months",
+          "features": [
+            "4 expressions (Sad, Angry, Shy, Happy)",
+            "Nude base",
+            "PSD file",
+            "Model files"
+          ],
+          "prices": [
+            "Standard Model: $1800+ (Additional costs may apply depending on complexity)",
+            "Chibi Model: $1200+ (Additional costs may apply depending on complexity)",
+            "Silly Chibi Model: $500+ (Additional costs may apply depending on complexity)"
+          ],
+          "addons": [
+            "Simple Expression: +$30 - $60",
+            "Complex Expression (animated, e.g. crying): +$80+",
+            "Arm/Leg Toggle: +$80 - $150+",
+            "Extra Outfit: +$100 - $600+",
+            "Extra Hair: +$150 - $400+",
+            "Simple Pet: +$80 - $150",
+            "TTS Pet: +$150 - $250",
+            "VBridger: +$300"
           ]
         }
       ]
