@@ -634,7 +634,7 @@ document.addEventListener("DOMContentLoaded", () => {
           div.dataset.category = category;
 
           div.innerHTML = `
-            <img src="./gallery/${category}/${item.file}">
+            <img src="${BASE}/gallery/${category}/${item.file}">
           `;
 
           grid.appendChild(div);
