@@ -1603,3 +1603,10 @@ body:not(.light) #tallyPage iframe {
 #pricingPage h1 {
   margin-top: 0;
 }
+
+#pricingPage .pricing-section,
+#pricingPage .pricing-title,
+#pricingPage .pricing-label,
+#pricingPage .pricing-section-title {
+  text-align: left;
+}
