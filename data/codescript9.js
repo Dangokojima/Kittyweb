@@ -147,6 +147,15 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
+  (function initTheme() {
+    const savedTheme = localStorage.getItem("theme") || "dark";
+
+    document.body.classList.remove("theme-light", "theme-dark");
+    document.body.classList.add(`theme-${savedTheme}`);
+
+    updateTheme(); // 👈 atualiza o ícone ao carregar
+  })();
+
   // =========================
   // MENU
   // =========================
@@ -483,9 +492,6 @@ document.addEventListener("DOMContentLoaded", () => {
       container.innerHTML = `
         <h1 class="font-title">${translations[titleKey] || fallbackTitle}</h1>
         ${html}
-        <button id="${closeId}" class="cta">
-          ${translations.back || "Voltar"}
-        </button>
       `;
 
       document.getElementById(closeId)?.addEventListener("click", (e) => {
