@@ -1523,38 +1523,36 @@ body:not(.light) #tallyPage iframe {
   border-radius: 12px;
 }
 
-.pricing-section-block {
+#pricingPage .pricing-section-block {
   margin-top: 60px;
 }
 
-.pricing-section-title {
+#pricingPage .pricing-section-title {
   font-family: 'UnifrakturCook';
   font-size: 34px;
   margin-bottom: 24px;
   letter-spacing: 1px;
 }
 
-.pricing-grid {
+#pricingPage .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-/* tablet */
 @media (max-width: 1024px) {
-  .pricing-grid {
+  #pricingPage .pricing-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* mobile */
 @media (max-width: 600px) {
-  .pricing-grid {
+  #pricingPage .pricing-grid {
     grid-template-columns: 1fr;
   }
 }
 
-.pricing-card {
+#pricingPage .pricing-card {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 12px;
@@ -1562,31 +1560,25 @@ body:not(.light) #tallyPage iframe {
   transition: 0.3s;
 }
 
-.pricing-card:hover {
+#pricingPage .pricing-card:hover {
   border-color: var(--hover);
   box-shadow: 0 0 20px rgba(255,186,75,0.15);
 }
 
-.pricing-title {
+#pricingPage .pricing-title {
   font-family: 'Inika', serif;
   font-size: 22px;
   font-weight: 900;
   margin: 28px 0 12px;
 }
 
-.pricing-price {
-  color: var(--hover);
-  margin: 10px 0;
-  font-weight: bold;
-}
-
-.pricing-section {
+#pricingPage .pricing-section {
   font-size: 16px;
   line-height: 1.6;
   opacity: 0.95;
 }
 
-.pricing-label {
+#pricingPage .pricing-label {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 900;
@@ -1594,17 +1586,17 @@ body:not(.light) #tallyPage iframe {
   opacity: 0.9;
 }
 
-.pricing-section ul {
+#pricingPage .pricing-section ul {
   padding-left: 18px;
   margin: 4px 0 12px;
 }
 
-.pricing-section li {
+#pricingPage .pricing-section li {
   margin-bottom: 2px;
   font-size: 15px;
 }
 
-.pricing-delivery {
+#pricingPage .pricing-delivery {
   font-size: 15px;
 }
 
