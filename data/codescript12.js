@@ -180,8 +180,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================
 
   const links={
-    pt:"https://tally.so/r/gD0Qq1",
-    en:"https://tally.so/r/wb5pJ6"
+    pt:"https://tally.so/r/1A2vbb",
+    en:"https://tally.so/r/RGR1jK"
   };
 
   function openForm(){
