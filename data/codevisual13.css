@@ -1407,16 +1407,6 @@ body.theme-light {
 
 }
 
-/* aplica só no tema claro */
-body.light #tallyPage iframe {
-  filter: invert(1) hue-rotate(180deg);
-}
-
-/* garante normal no dark */
-body:not(.light) #tallyPage iframe {
-  filter: none;
-}
-
 /* =========================
    Works
 ========================= */
