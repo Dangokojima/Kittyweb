@@ -1659,7 +1659,7 @@ body.theme-light {
 }
 
 .projects-grid {
-  overflow-x: auto;
+  overflow-x: visible;
   overflow-y: visible;
   padding: 20px 20px; 
   justify-content: flex-start;
