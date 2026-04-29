@@ -1615,18 +1615,19 @@ body.theme-light {
   justify-content: flex-start; /* 👈 ISSO AQUI */
 
   overflow-x: auto;
-  padding: 30px 10px;
+  padding: 0px 10px;
 
   scroll-behavior: smooth;
 
   scrollbar-width: none;
 }
+
 .projects-grid::-webkit-scrollbar {
   display: none;
 }
 
 .project-item {
-  flex: 0 0 220px;
+  flex: 0 0 400px;
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
@@ -1642,4 +1643,35 @@ body.theme-light {
 
 .project-item:hover {
   transform: scale(1.05);
+}
+
+.projects-grid {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.projects-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+
+.projects-section {
+  margin-top: 10px; /* antes 20px */
+}
+
+.projects-container h1 {
+  margin: 0;
+  margin-bottom: 8px; /* 👈 distância do Projects pro Comics */
+}
+
+.projects-section h2 {
+  margin: 0;          /* 👈 remove margem padrão gigante */
+  margin-bottom: 10px;
+}
+
+#projectsPage {
+  padding-top: 150px; /* ou 60px se quiser mais colado */
 }

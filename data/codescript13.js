@@ -793,10 +793,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function loadProjects() {
 
-    const grid = document.querySelector(".projects-grid");
-    if (!grid) return;
+    const container = document.querySelector(".projects-container");
+    if (!container) return;
 
-    grid.innerHTML = "";
+    // limpa tudo MENOS título principal
+    container.querySelectorAll(".projects-section").forEach(el => el.remove());
 
     try {
       const res = await fetch(`${BASE}/data/projects.json?v=${Date.now()}`);
@@ -804,7 +805,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       Object.entries(data).forEach(([category, items]) => {
 
-        const safeCategory = category.trim().toLowerCase();
+        const section = document.createElement("div");
+        section.className = "projects-section";
+
+        section.innerHTML = `
+          <h2 class="font-serif">${category}</h2>
+          <div class="projects-grid"></div>
+        `;
+
+        const grid = section.querySelector(".projects-grid");
 
         items.forEach(item => {
 
@@ -812,7 +821,7 @@ document.addEventListener("DOMContentLoaded", () => {
           div.className = "project-item";
 
           div.innerHTML = `
-            <img src="${BASE}/gallery/projects/${safeCategory}/${item.file}">
+            <img src="${BASE}/gallery/projects/${category.toLowerCase()}/${item.file}">
           `;
 
           div.addEventListener("click", () => {
@@ -822,8 +831,9 @@ document.addEventListener("DOMContentLoaded", () => {
           });
 
           grid.appendChild(div);
-
         });
+
+        container.appendChild(section);
 
       });
 
