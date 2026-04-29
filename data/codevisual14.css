@@ -9,6 +9,7 @@
   /* BRAND */
   --accent: #a855f7;
   --hover: #ffba4b;
+  --hoverglow: #7878FFB3;
 
   /* CARDS / UI */
   --card-bg: #2a1f3d;
@@ -34,6 +35,12 @@
   --hover-glow-weak: rgba(255, 186, 75, 0.2);
   --hover-glow-max: rgba(255, 186, 75, 0.9);
   --hover-glow-none: rgba(255, 186, 75, 0);
+
+  --hoverglow-strong: rgba(120, 120, 255, 0.7);
+  --hoverglow-soft: rgba(120, 120, 255, 0.4);
+  --hoverglow-weak: rgba(120, 120, 255, 0.2);
+  --hoverglow-max: rgba(120, 120, 255, 0.9);
+  --hoverglow-none: rgba(120, 120, 255, 0);
 
   --accent-strong: rgba(168,85,247,0.6);
   --accent-soft: rgba(168,85,247,0.2);
@@ -275,7 +282,7 @@ body.theme-light {
 
   inset: 2px -8px; /* 👈 controla o respiro aqui */
 
-  border: 2px solid var(--hover);
+  border: 2px solid var(--hoverglow);
   border-radius: 25px;
 
   opacity: 0;
@@ -292,13 +299,11 @@ body.theme-light {
   opacity: 1;
   transform: scale(1);
 
-  /* 👇 bloom entra suave e fica */
   box-shadow:
-    0 0 6px rgba(255, 186, 75, 0.6),
-    0 0 14px rgba(255, 186, 75, 0.4),
-    0 0 24px rgba(255, 186, 75, 0.25);
+    0 0 6px var(--hoverglow-strong),
+    0 0 14px var(--hoverglow-soft),
+    0 0 24px var(--hoverglow-weak);
 
-  /* 👇 só o pulse */
   animation: pulseBorder 2s ease-in-out infinite;
 }
 
