@@ -790,4 +790,44 @@ document.addEventListener("DOMContentLoaded", () => {
       page?.addEventListener("scroll", updateLogoVisibility);
     });
 
+  async function loadProjects() {
+
+    const grid = document.querySelector(".projects-grid");
+    if (!grid) return;
+
+    grid.innerHTML = "";
+
+    try {
+      const res = await fetch(`${BASE}/data/projects.json?v=${Date.now()}`);
+      const data = await res.json();
+
+      Object.entries(data).forEach(([category, items]) => {
+
+        items.forEach(item => {
+
+          const div = document.createElement("div");
+          div.className = "project-item";
+
+          div.innerHTML = `
+            <img src="${BASE}/projects/${category}/${item.file}">
+          `;
+
+          // 🔥 link
+          div.addEventListener("click", () => {
+            if (item.link) {
+              window.open(item.link, "_blank");
+            }
+          });
+
+          grid.appendChild(div);
+
+        });
+
+      });
+
+    } catch (err) {
+      console.error("Erro ao carregar projects:", err);
+    }
+  }
+
 });
