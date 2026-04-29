@@ -1612,7 +1612,7 @@ body.theme-light {
   display: flex;
   gap: 20px;
 
-  justify-content: flex-start; /* 👈 ISSO AQUI */
+  justify-content: flex-start;
 
   overflow-x: auto;
   padding: 0px 10px;
